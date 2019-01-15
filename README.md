@@ -2,7 +2,9 @@
 
 ## Installation
 
-`npm i ronoco-bootstrap --save` or `yarn add ronoco-bootstrap`
+`yarn add git+https://liam-ronoco:sPQ5suAVsmkVFM3wLHAK@bitbucket.org/ronocodev/ronoco-bootstrap.git#*`
+
+to install specific version add #v.v.v (i.e. #1.0.0) to the end of dependency URL.
 
 ## Usage
 
@@ -20,13 +22,13 @@ export default App;
 ## Updating the package:
 
 1. Update version number in package.json
-2. build module:
+2. Build module:
 
 ```
 yarn run build
 ```
 
-3. Publish
+3. Commit
 
 ## Demo
 
