@@ -12,11 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/DimitriMikadze/react-under-construction.git"
   },
-  "author": "Dimitri Mikadze <dimitrimikadze@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/DimitriMikadze/create-react-library/issues"
-  },
-  "homepage": "https://github.com/DimitriMikadze/react-under-construction#readme",
+  "author": "Liam Kelly <liam@ronoco.com>",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "7.1.6",
