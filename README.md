@@ -17,6 +17,17 @@ export default App;
 
 ```
 
+## Updating the package:
+
+1. Update version number in package.json
+2. build module:
+
+```
+yarn run build
+```
+
+3. Publish
+
 ## Demo
 
 To run demo on your own computer:
