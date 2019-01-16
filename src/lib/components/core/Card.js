@@ -3,7 +3,7 @@ import { cx } from 'emotion';
 
 const Card = props => {
   const { children, className, ...rest } = props;
-  const cardClass = cx('card', className);
+  const cardClass = cx(className, 'card');
   return (
     <div className={cardClass} {...rest}>
       {children}
@@ -13,7 +13,7 @@ const Card = props => {
 
 const CardTitle = props => {
   const { children, className, as, ...rest } = props;
-  const cardTitleClass = cx('card-title', 'mb-0', className);
+  const cardTitleClass = cx(className, 'card-title', 'mb-0');
   const Component = as || 'h2';
   return (
     <Component className={cardTitleClass} {...rest}>
@@ -24,7 +24,7 @@ const CardTitle = props => {
 
 const CardHeader = props => {
   const { children, className, ...rest } = props;
-  const headerClass = cx('card-header', className);
+  const headerClass = cx(className, 'card-header');
   return (
     <div className={headerClass} {...rest}>
       {children}
@@ -34,7 +34,7 @@ const CardHeader = props => {
 
 const CardBody = props => {
   const { children, className, ...rest } = props;
-  const cardBodyClass = cx('card-body', className);
+  const cardBodyClass = cx(className, 'card-body');
   return (
     <div className={cardBodyClass} {...rest}>
       {children}
@@ -44,7 +44,7 @@ const CardBody = props => {
 
 const CardText = props => {
   const { children, className, ...rest } = props;
-  const cardTextClass = cx('card-text', className);
+  const cardTextClass = cx(className, 'card-text');
   return (
     <span className={cardTextClass} {...rest}>
       {children}
@@ -54,7 +54,7 @@ const CardText = props => {
 
 const CardDropdown = props => {
   const { children, className, ...rest } = props;
-  const cardDropdownClass = cx('dropdown', 'card-dropdown', className);
+  const cardDropdownClass = cx(className, 'dropdown', 'card-dropdown');
   return (
     <div className={cardDropdownClass} {...rest}>
       {children}
@@ -64,7 +64,7 @@ const CardDropdown = props => {
 
 const CardAvatar = props => {
   const { children, className, ...rest } = props;
-  const cardAvatarClass = cx('card-avatar', 'avatar', className);
+  const cardAvatarClass = cx(className, 'card-avatar', 'avatar');
   return (
     <div className={cardAvatarClass} {...rest}>
       {children}
@@ -75,7 +75,7 @@ const CardAvatar = props => {
 // TODO: Test this
 const CardTable = props => {
   const { children, className, ...rest } = props;
-  const cardTableClass = cx('card-table', className);
+  const cardTableClass = cx(className, 'card-table');
   return (
     <table className={cardTableClass} {...rest}>
       {children}
