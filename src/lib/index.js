@@ -17,4 +17,4 @@ export * from './components/core/Navbar';
 export * from './components/core/Pagination';
 export * from './components/core/Progress';
 export * from './components/core/Table';
-
+export * from './components/core/Image';

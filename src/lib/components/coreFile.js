@@ -17,3 +17,4 @@ export * from './core/Navbar';
 export * from './core/Pagination';
 export * from './core/Progress';
 export * from './core/Table';
+export * from './core/Image';
