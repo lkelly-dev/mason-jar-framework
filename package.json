@@ -1,7 +1,7 @@
 {
-  "name": "ronoco-bootstrap",
+  "name": "mason-jar-framework",
   "version": "0.1.0",
-  "description": "Ronoco Bootstrap Library",
+  "description": "A React component library for Bootstrap themes",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/DimitriMikadze/react-under-construction.git"
   },
-  "author": "Liam Kelly <liam@ronoco.com>",
+  "author": "Ronoco",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "7.1.6",
