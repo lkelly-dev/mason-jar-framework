@@ -1,6 +1,7 @@
 import React from 'react';
-import { cx } from 'emotion';
+import { cx, css } from 'emotion';
 import MODIFIERS from './Modifiers';
+import Select from 'react-select';
 
 const Form = props => {
   const { children } = props;
@@ -39,6 +40,13 @@ const FormSelect = props => {
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
   return <select className={formClass} {...rest} />;
+};
+
+const FormSearchSelect = props => {
+  const { validity, className, ...rest } = props;
+  const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
+  const formClass = cx('form-control', formValidity, className);
+  return <Select className={formClass} {...rest} />;
 };
 
 const FormTextarea = props => {
@@ -134,6 +142,7 @@ Form.Upload = FormUpload;
 Form.Toggle = FormToggle;
 Form.Datepicker = FormDatepicker;
 Form.Check = FormCheck;
+Form.SearchSelect = FormSearchSelect;
 
 export {
   Form,
@@ -147,4 +156,5 @@ export {
   FormDatepicker,
   FormToggle,
   FormCheck,
+  FormSearchSelect,
 };
