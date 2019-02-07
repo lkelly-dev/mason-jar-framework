@@ -1,12 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Alert Alert matches snapshot 1`] = `
-<div
-  className="alert"
-  role="alert"
-/>
-`;
-
 exports[`Alert matches snapshot 1`] = `
 <div
   className="alert"

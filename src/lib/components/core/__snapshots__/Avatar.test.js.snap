@@ -1,7 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar Avatar matches snapshot 1`] = `
+exports[`Avatar matches snapshot 1`] = `
 <div
   className="avatar"
+/>
+`;
+
+exports[`Avatar.Image matches snapshot 1`] = `
+<img
+  alt=""
+  className="avatar-img"
+/>
+`;
+
+exports[`Avatar.Title matches snapshot 1`] = `
+<span
+  className="avatar-title"
 />
 `;

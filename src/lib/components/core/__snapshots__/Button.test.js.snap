@@ -6,3 +6,16 @@ exports[`Button Button matches snapshot 1`] = `
   type="button"
 />
 `;
+
+exports[`Button matches snapshot 1`] = `
+<button
+  className="btn css-bh7dxm"
+  type="button"
+/>
+`;
+
+exports[`ButtonGroup matches snapshot 1`] = `
+<div
+  className="btn-group"
+/>
+`;

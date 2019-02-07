@@ -5,3 +5,9 @@ exports[`Badge Badge matches snapshot 1`] = `
   className="badge"
 />
 `;
+
+exports[`Badge matches snapshot 1`] = `
+<span
+  className="badge"
+/>
+`;

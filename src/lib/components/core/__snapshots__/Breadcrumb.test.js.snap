@@ -5,3 +5,9 @@ exports[`Breadcrumb Breadcrumb matches snapshot 1`] = `
   className="breadcrumb"
 />
 `;
+
+exports[`BreadcrumbItem Breadcrumb matches snapshot 1`] = `
+<div
+  className="breadcrumb-item"
+/>
+`;

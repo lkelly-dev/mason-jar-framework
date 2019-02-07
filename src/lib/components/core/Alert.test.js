@@ -22,7 +22,6 @@ describe('Alert', () => {
     const component = shallow(<Alert className="monkey" />);
     expect(component.props().className).toBe("alert monkey");
   });
-
 });
 
 describe('Alert.Link', () => {
