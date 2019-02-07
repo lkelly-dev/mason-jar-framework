@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar Navbar matches snapshot 1`] = `
+<nav
+  className="navbar"
+/>
+`;
+
+exports[`Pagination Pagination matches snapshot 1`] = `
+<ul
+  className="card"
+/>
+`;
