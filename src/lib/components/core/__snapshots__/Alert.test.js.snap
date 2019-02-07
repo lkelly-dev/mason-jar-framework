@@ -6,3 +6,22 @@ exports[`Alert Alert matches snapshot 1`] = `
   role="alert"
 />
 `;
+
+exports[`Alert matches snapshot 1`] = `
+<div
+  className="alert"
+  role="alert"
+/>
+`;
+
+exports[`Alert.Heading matches snapshot 1`] = `
+<h4
+  className="alert-heading"
+/>
+`;
+
+exports[`Alert.Link matches snapshot 1`] = `
+<a
+  className="alert-link"
+/>
+`;

@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pagination Pagination matches snapshot 1`] = `
-<ul
-  className="card"
-/>
-`;
-
 exports[`Progress Progress matches snapshot 1`] = `
 <div
   className="progress"

@@ -14,20 +14,20 @@ const Alert = props => {
 };
 
 const AlertLink = props => {
-  const { children, className } = props;
+  const { children, className, ...restProps } = props;
   const alertLinkClass = cx('alert-link', className);
   return (
-    <a className={alertLinkClass} {...props}>
+    <a className={alertLinkClass} {...restProps}>
       {children}
     </a>
   );
 };
 
 const AlertHeading = props => {
-  const { children, className } = props;
+  const { children, className, ...restProps } = props;
   const alertHeadingClass = cx('alert-heading', className);
   return (
-    <h4 className={alertHeadingClass} {...props}>
+    <h4 className={alertHeadingClass} {...restProps}>
       {children}
     </h4>
   );
