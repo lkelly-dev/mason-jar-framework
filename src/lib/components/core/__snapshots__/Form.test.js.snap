@@ -1,3 +1,124 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Form Form matches snapshot 1`] = `<form />`;
+
+exports[`FormCheck matches snapshot 1`] = `
+<div
+  className="form-group form-check"
+>
+  <input
+    className="form-check-input"
+    type="checkbox"
+  />
+  <label
+    className="form-check-label"
+  />
+</div>
+`;
+
+exports[`FormDatePicker matches snapshot 1`] = `
+<input
+  className="form-control"
+  data-flatpickr-mode={null}
+  data-toggle="flatpickr"
+  placeholder="Pick a date"
+  type="text"
+/>
+`;
+
+exports[`FormGroup FormGroup matches snapshot 1`] = `
+<div
+  className="form-group"
+/>
+`;
+
+exports[`FormInput FormInput matches snapshot 1`] = `
+<input
+  className="form-control"
+/>
+`;
+
+exports[`FormLabel matches snapshot 1`] = `
+<label
+  className="form-check-label"
+/>
+`;
+
+exports[`FormRow FormRow matches snapshot 1`] = `
+<div
+  className="form-row"
+/>
+`;
+
+exports[`FormSearchSelect matches snapshot 1`] = `
+<StateManager
+  className="form-control"
+  defaultInputValue=""
+  defaultMenuIsOpen={false}
+  defaultValue={null}
+/>
+`;
+
+exports[`FormSelect matches snapshot 1`] = `
+<select
+  className="form-control"
+/>
+`;
+
+exports[`FormTextarea matches snapshot 1`] = `
+<textarea
+  className="form-control"
+/>
+`;
+
+exports[`FormToggle matches snapshot 1`] = `
+<div
+  className="custom-control custom-checkbox-toggle"
+>
+  <input
+    className="custom-control-input"
+    type="checkbox"
+  />
+  <label
+    className="custom-control-label"
+  />
+</div>
+`;
+
+exports[`FormUpload matches snapshot 1`] = `
+<div
+  className="dropzone dropzone-single"
+  data-dropzone-url="http://google.com"
+  data-toggle="dropzone"
+>
+  <div
+    className="fallback"
+  >
+    <div
+      className="custom-file"
+    >
+      <input
+        className="custom-file-input"
+        typename="file"
+      />
+      <label
+        className="custom-file-label"
+      />
+    </div>
+  </div>
+  <div
+    className="dz-preview dz-preview-single"
+  >
+    <div
+      className="dz-preview-cover"
+    >
+      <img
+        alt="..."
+        className="dz-preview-img"
+        data-dz-thumbnail={true}
+        src="..."
+      />
+    </div>
+  </div>
+</div>
+`;

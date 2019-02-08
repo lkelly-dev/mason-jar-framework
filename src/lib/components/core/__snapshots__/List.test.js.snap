@@ -5,3 +5,9 @@ exports[`List List matches snapshot 1`] = `
   className="list-group"
 />
 `;
+
+exports[`ListItem ListItem matches snapshot 1`] = `
+<div
+  className="list-group-item"
+/>
+`;

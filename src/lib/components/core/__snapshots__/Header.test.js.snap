@@ -5,3 +5,27 @@ exports[`Header Header matches snapshot 1`] = `
   className="header"
 />
 `;
+
+exports[`HeaderBody Header matches snapshot 1`] = `
+<div
+  className="header-body"
+/>
+`;
+
+exports[`HeaderPretitle Header matches snapshot 1`] = `
+<h6
+  className="header-pretitle"
+/>
+`;
+
+exports[`HeaderSubtitle Header matches snapshot 1`] = `
+<h6
+  className="header-subtitle"
+/>
+`;
+
+exports[`HeaderTitle Header matches snapshot 1`] = `
+<h1
+  className="header-title"
+/>
+`;

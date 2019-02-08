@@ -5,6 +5,8 @@ import { Button } from './Button';
 
 const Modal = props => {
   const { element, children } = props;
+  // FIXME element is currently a required prop
+  // FIXME is element actually the correct name? why not use the name id? and whats it for? etc
   return (
     <div className="modal" tabIndex="-1" role="dialog" aria-hidden="true" id={element}>
       <div className="modal-dialog" role="document">

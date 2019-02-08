@@ -4,6 +4,7 @@ exports[`Modal Modal matches snapshot 1`] = `
 <div
   aria-hidden="true"
   className="modal"
+  id="div"
   role="dialog"
   tabIndex="-1"
 >

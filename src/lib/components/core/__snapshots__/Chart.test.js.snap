@@ -5,3 +5,9 @@ exports[`Chart Chart matches snapshot 1`] = `
   className="chart"
 />
 `;
+
+exports[`ChartCanvas ChartCanvas matches snapshot 1`] = `
+<canvas
+  className="chart-canvas"
+/>
+`;

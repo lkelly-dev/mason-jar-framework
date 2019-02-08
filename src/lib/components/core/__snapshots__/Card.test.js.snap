@@ -5,3 +5,51 @@ exports[`Card Card matches snapshot 1`] = `
   className="card"
 />
 `;
+
+exports[`Card matches snapshot 1`] = `
+<div
+  className="card"
+/>
+`;
+
+exports[`CardAvatar matches snapshot 1`] = `
+<div
+  className="card-avatar avatar"
+/>
+`;
+
+exports[`CardBody matches snapshot 1`] = `
+<div
+  className="card-body"
+/>
+`;
+
+exports[`CardDropdown matches snapshot 1`] = `
+<div
+  className="dropdown card-dropdown"
+/>
+`;
+
+exports[`CardHeader matches snapshot 1`] = `
+<div
+  className="card-header"
+/>
+`;
+
+exports[`CardTable matches snapshot 1`] = `
+<table
+  className="card-table"
+/>
+`;
+
+exports[`CardText matches snapshot 1`] = `
+<span
+  className="card-text"
+/>
+`;
+
+exports[`CardTitle matches snapshot 1`] = `
+<h2
+  className="card-title mb-0"
+/>
+`;

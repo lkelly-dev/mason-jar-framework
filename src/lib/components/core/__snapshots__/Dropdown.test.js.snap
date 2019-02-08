@@ -5,3 +5,51 @@ exports[`Dropdown Dropdown matches snapshot 1`] = `
   className="dropdown"
 />
 `;
+
+exports[`DropdownCard DropdownCard matches snapshot 1`] = `
+<div
+  className="dropdown-menu dropdown-menu-card"
+/>
+`;
+
+exports[`DropdownFeatherToggle DropdownFeatherToggle matches snapshot 1`] = `
+<Button
+  aria-expanded="false"
+  aria-haspopup="true"
+  className="dropdown-ellipses dropdown-toggle"
+  data-toggle="dropdown"
+  style={
+    Object {
+      "border": "none",
+      "cursor": "pointer",
+    }
+  }
+  type="button"
+>
+  <i
+    className="fe fe-more-vertical"
+  />
+</Button>
+`;
+
+exports[`DropdownItem DropdownItem matches snapshot 1`] = `
+<div
+  className="dropdown-item"
+/>
+`;
+
+exports[`DropdownMenu DropdownMenu matches snapshot 1`] = `
+<div
+  className="dropdown-menu"
+/>
+`;
+
+exports[`DropdownToggle DropdownToggle matches snapshot 1`] = `
+<Button
+  aria-expanded="false"
+  aria-haspopup="true"
+  className="dropdown-toggle"
+  data-toggle="dropdown"
+  type="button"
+/>
+`;

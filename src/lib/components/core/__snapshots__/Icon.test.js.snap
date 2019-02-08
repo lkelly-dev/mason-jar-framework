@@ -5,3 +5,9 @@ exports[`Icon Icon matches snapshot 1`] = `
   className="fe fe-undefined"
 />
 `;
+
+exports[`Icon matches snapshot 1`] = `
+<span
+  className="fe fe-undefined"
+/>
+`;
