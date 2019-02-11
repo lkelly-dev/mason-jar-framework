@@ -5,3 +5,37 @@ exports[`Navbar Navbar matches snapshot 1`] = `
   className="navbar"
 />
 `;
+
+exports[`NavbarBrand Navbar matches snapshot 1`] = `
+<a
+  className="navbar-brand"
+/>
+`;
+
+exports[`NavbarCollapse Navbar matches snapshot 1`] = `
+<div
+  className="collapse navbar-collapse"
+/>
+`;
+
+exports[`NavbarNav Navbar matches snapshot 1`] = `
+<nav
+  className="navbar-nav"
+/>
+`;
+
+exports[`NavbarText Navbar matches snapshot 1`] = `
+<span
+  className="navbar-text"
+/>
+`;
+
+exports[`NavbarToggle Navbar matches snapshot 1`] = `
+<Button
+  className="navbar-toggler"
+>
+  <span
+    className="navbar-toggler-icon"
+  />
+</Button>
+`;

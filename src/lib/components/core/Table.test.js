@@ -3,8 +3,25 @@ import { shallow } from 'enzyme';
 import { Table } from "./Table";
 
 describe('Table', () => {
-  it('Table matches snapshot', () => {
+  it('matches snapshot', () => {
     const component = shallow(<Table></Table>);
     expect(component).toMatchSnapshot();
-  })
+  });
+  it('has expected props', () => {
+    const cn = 'neato';
+    const children = <div>child</div>;
+    const component = shallow(
+      <Table
+        className={ cn }
+        what="ever" >
+        { children }
+      </Table>
+    );
+    const classNameArray = component.prop('className').split(' ');
+    expect(classNameArray).toContain('table');
+    expect(classNameArray).toContain(cn);
+    expect(classNameArray).toHaveLength(2);
+    expect(component.prop('what')).toBe('ever');
+    expect(component.contains(children)).toEqual(true);
+  });
 });

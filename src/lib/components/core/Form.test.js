@@ -114,6 +114,14 @@ describe('FormInput', () => {
     expect(component.type()).toBe('input');
     expect(classNameArray).toHaveLength(3);
   });
+
+  // TODO check for error thrown.
+  // https://airbnb.io/enzyme/docs/api/ShallowWrapper/simulateError.html
+
+  /* it('throws error if there are children', () => {
+   *   const component = shallow(<FormInput><div>any child at all</div></FormInput>);
+   *   expect(component).toThrow(/children/);
+   * }); */
 });
 
 describe('FormSelect', () => {

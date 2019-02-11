@@ -5,3 +5,9 @@ exports[`Table Table matches snapshot 1`] = `
   className="table"
 />
 `;
+
+exports[`Table matches snapshot 1`] = `
+<table
+  className="table"
+/>
+`;

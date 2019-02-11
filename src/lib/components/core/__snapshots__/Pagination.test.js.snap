@@ -5,3 +5,15 @@ exports[`Pagination Pagination matches snapshot 1`] = `
   className="card"
 />
 `;
+
+exports[`PaginationItem PaginationItem matches snapshot 1`] = `
+<li
+  className="card"
+/>
+`;
+
+exports[`PaginationLink PaginationLink matches snapshot 1`] = `
+<a
+  className="page-link"
+/>
+`;

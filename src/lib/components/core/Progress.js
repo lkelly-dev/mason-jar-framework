@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { cx } from 'emotion';
 import MODIFIERS from './Modifiers';
 
+// FIXME should this be a stateful component?
+
 const Progress = props => {
   const { children, className, now, min, max, size, ...rest } = props;
   const progressSize = MODIFIERS.SIZE[size] ? `progress-${size}` : null;
