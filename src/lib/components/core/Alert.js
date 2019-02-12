@@ -14,10 +14,10 @@ const Alert = props => {
 };
 
 const AlertLink = props => {
-  const { children, className, ...restProps } = props;
+  const { children, className, ...rest } = props;
   const alertLinkClass = cx('alert-link', className);
   return (
-    <a className={alertLinkClass} {...restProps}>
+    <a className={alertLinkClass} {...rest}>
       {children}
     </a>
   );

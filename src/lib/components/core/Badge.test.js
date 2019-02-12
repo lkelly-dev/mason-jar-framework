@@ -8,16 +8,29 @@ describe('Badge', () => {
     expect(component).toMatchSnapshot();
   })
   it('has correct props', () => {
+    const child = <div>A</div>;
     const component = shallow(
-      <Badge color="danger" className="neato" eggman="walrus">
-        <div>A</div>
+      <Badge
+        color={ color }
+        className={ cn }
+        eggman="walrus">
+        { child }
       </Badge>
     );
     const classNameArray = component.prop('className').split(' ');
     expect(classNameArray).toContain('badge');
-    expect(classNameArray).toContain('badge-danger');
-    expect(classNameArray).toContain('neato');
-    expect(component.contains(<div>A</div>)).toEqual(true);
+    expect(classNameArray).toContain(`badge-${color}`);
+    expect(classNameArray).toContain(cn);
+    expect(classNameArray).toHaveLength(3);
+    expect(component.contains(child)).toEqual(true);
     expect(component.prop('eggman')).toBe('walrus');
-  })
+  });
+
+  it('doesnt use incorrect props', () => {
+    const component = shallow(<Badge color={ badColor }/>);
+    const classNameArray = component.prop('className').split(' ');
+    expect(classNameArray).toContain('badge');
+    expect(classNameArray).not.toContain(`badge-${badColor}`);
+    expect(classNameArray).toHaveLength(1)
+  });
 });

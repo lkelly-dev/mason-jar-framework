@@ -18,19 +18,19 @@ describe('Dropdown', () => {
   });
 
   it('has expected props', () => {
-    const childComponent = <div>Child Component</div>;
+    const child = <div>Child Component</div>;
     const component = shallow(
       <Dropdown
-        className="nifty"
+        className={ cn }
         what="ever" >
-        { childComponent }
+        { child }
       </Dropdown>
     );
     const classNameArray = component.prop('className').split(' ');
-    expect(component.contains(childComponent)).toEqual(true);
+    expect(component.contains(child)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('dropdown');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(2);
   });
@@ -44,23 +44,23 @@ describe('DropdownToggle', () => {
   });
 
   it('has expected props', () => {
-    const childComponent = <div>Child Component</div>;
+    const child = <div>Child Component</div>;
     const component = shallow(
       <DropdownToggle
-        className="nifty"
+        className={ cn }
         what="ever" >
-        { childComponent }
+        { child }
       </DropdownToggle>
     );
     const classNameArray = component.prop('className').split(' ');
-    expect(component.contains(childComponent)).toEqual(true);
+    expect(component.contains(child)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(component.prop('type')).toBe('button');
     expect(component.prop('data-toggle')).toBe('dropdown');
     expect(component.prop('aria-haspopup')).toBe("true");
     expect(component.prop('aria-expanded')).toBe("false");
     expect(classNameArray).toContain('dropdown-toggle');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe(Button);
     expect(classNameArray).toHaveLength(2);
   });
@@ -76,12 +76,11 @@ describe('DropdownFeatherToggle', () => {
   it('has expected props', () => {
     const component = shallow(
       <DropdownFeatherToggle
-        className="nifty"
+        className={ cn }
         what="ever" >
       </DropdownFeatherToggle>
     );
     const classNameArray = component.prop('className').split(' ');
-    expect(component.contains(<i className="fe fe-more-vertical" />)).toEqual(true); // is this too explicit?
     expect(component.prop('what')).toBe('ever');
     expect(component.prop('type')).toBe('button');
     expect(component.prop('data-toggle')).toBe('dropdown');
@@ -89,7 +88,7 @@ describe('DropdownFeatherToggle', () => {
     expect(component.prop('aria-expanded')).toBe("false");
     expect(classNameArray).toContain('dropdown-ellipses');
     expect(classNameArray).toContain('dropdown-toggle');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe(Button);
     expect(classNameArray).toHaveLength(3);
   });
@@ -103,19 +102,19 @@ describe('DropdownMenu', () => {
   });
 
   it('has expected props', () => {
-    const childComponent = <div>Child Component</div>;
+    const child = <div>Child Component</div>;
     const component = shallow(
       <DropdownMenu
-        className="nifty"
+        className={ cn }
         what="ever" >
-        { childComponent }
+        { child }
       </DropdownMenu>
     );
     const classNameArray = component.prop('className').split(' ');
-    expect(component.contains(childComponent)).toEqual(true);
+    expect(component.contains(child)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('dropdown-menu');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(2);
   });
@@ -129,16 +128,16 @@ describe('DropdownItem', () => {
   });
 
   it('has expected props', () => {
-    const childComponent = <div>Child Component</div>;
+    const child = <div>Child Component</div>;
     const component = shallow(
       <DropdownItem
         className="nifty"
         what="ever" >
-        { childComponent }
+        { child }
       </DropdownItem>
     );
     const classNameArray = component.prop('className').split(' ');
-    expect(component.contains(childComponent)).toEqual(true);
+    expect(component.contains(child)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('dropdown-item');
     expect(classNameArray).toContain('nifty');
@@ -155,20 +154,20 @@ describe('DropdownCard', () => {
   });
 
   it('has expected props', () => {
-    const childComponent = <div>Child Component</div>;
+    const child = <div>Child Component</div>;
     const component = shallow(
       <DropdownCard
-        className="nifty"
+        className={ cn }
         what="ever" >
-        { childComponent }
+        { child }
       </DropdownCard>
     );
     const classNameArray = component.prop('className').split(' ');
-    expect(component.contains(childComponent)).toEqual(true);
+    expect(component.contains(child)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('dropdown-menu');
     expect(classNameArray).toContain('dropdown-menu-card');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(3);
   });

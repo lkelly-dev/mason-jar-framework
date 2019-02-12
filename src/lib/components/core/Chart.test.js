@@ -9,19 +9,20 @@ describe('Chart', () => {
   });
 
   it('has expected props', () => {
-    const childComponent = <div>Child Component</div>;
+    const child = <div>Child </div>;
+
     const component = shallow(
       <Chart
-        className="nifty"
+        className={ cn }
         what="ever" >
-        { childComponent }
+        { child }
       </Chart>
     );
     const classNameArray = component.prop('className').split(' ');
-    expect(component.contains(childComponent)).toEqual(true);
+    expect(component.contains(child)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('chart');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
   });
 });
@@ -33,20 +34,20 @@ describe('ChartCanvas', () => {
   });
 
   it('has expected props', () => {
-    const childComponent = <div>Child Component</div>;
+    const child = <div>Child</div>;
     const component = shallow(
       <ChartCanvas
-        className="nifty"
+        className={ cn }
         what="ever" >
-        { childComponent }
+        { child }
       </ChartCanvas>
     );
     const classNameArray = component.prop('className').split(' ');
     expect(component.type()).toBe('canvas');
-    expect(component.contains(childComponent)).toEqual(true);
+    expect(component.contains(child)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('chart-canvas');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
   });
 });

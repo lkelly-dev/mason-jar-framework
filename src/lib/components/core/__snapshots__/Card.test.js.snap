@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card Card matches snapshot 1`] = `
-<div
-  className="card"
-/>
-`;
-
 exports[`Card matches snapshot 1`] = `
 <div
   className="card"

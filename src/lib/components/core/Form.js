@@ -30,18 +30,23 @@ const FormRow = props => {
 
 const FormInput = props => {
   const { validity, className, ...rest } = props;
+  // TODO figure out how to test this error.
   if(typeof rest['children'] !== 'undefined') { throw new Error('input elements cannot contain children')}
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
   return <input className={formClass} {...rest} />;
 };
 
-// FIXME disallow non <option> children
+
 const FormSelect = props => {
-  const { validity, className, ...rest } = props;
+  const { validity, className, children, ...rest } = props;
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
-  return <select className={formClass} {...rest} />;
+  return (
+    <select className={formClass} {...rest}>
+    { children }
+    </select>
+  );
 };
 
 const FormSearchSelect = props => {

@@ -8,70 +8,65 @@ describe('Alert', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('contains children', () => {
-    const component = shallow(<Alert><div>alert!</div></Alert>);
-    expect(component.contains(<div>alert!</div>)).toEqual(true);
-  });
-
-  it('has className alert', () => {
-    const component = shallow(<Alert />);
-    expect(component.props().className).toBe("alert");
+  it('has expected props', () => {
+    const child = <div>alert!</div>;
+    const component = shallow(<Alert color={ color }>{ child }</Alert>);
+    const classNameArray = component.prop('className').split(' ');
+    expect(component.contains(child)).toEqual(true);
+    expect(classNameArray).toContain(`alert-${color}`)
+    expect(classNameArray).toContain("alert");
   });
 
   it('appends additional className', () => {
-    const component = shallow(<Alert className="monkey" />);
+    const component = shallow(<Alert className={ cn }/>);
     const classNameArray = component.prop('className').split(' ');
     expect(classNameArray).toContain('alert');
-    expect(classNameArray).toContain('monkey');
+    expect(classNameArray).toContain(cn);
+    expect(classNameArray).toHaveLength(2);
+
+  });
+  it('doesnt append class for incorrect color parameters', () => {
+    const component = shallow(<Alert color={ badColor }>child</Alert>);
+    const classNameArray = component.prop('className').split(' ');
+    expect(classNameArray).not.toContain(`alert-${badColor}`);
   });
 });
 
-describe('Alert.Link', () => {
+describe('AlertLink', () => {
   it('matches snapshot', () => {
     const component = shallow(<AlertLink/>);
     expect(component).toMatchSnapshot();
   });
 
-  it('contains children', () => {
-    const component = shallow(<AlertLink><div>alert!</div></AlertLink>);
-    expect(component.contains(<div>alert!</div>)).toEqual(true);
-  });
-
-  it('has className alert-link', () => {
-    const component = shallow(<AlertLink />);
-    expect(component.props().className).toBe("alert-link");
-  });
-
-  it('appends additional className', () => {
-    const component = shallow(<AlertLink className="monkey" />);
+  it('has expected props', () => {
+    const child = <div>alert!</div>;
+    const component = shallow(
+      <AlertLink
+        className={ cn }>
+        { child }
+      </AlertLink>
+    );
     const classNameArray = component.prop('className').split(' ');
+    expect(component.contains(child)).toEqual(true);
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toContain('alert-link');
-    expect(classNameArray).toContain('monkey');
     expect(classNameArray).toHaveLength(2);
   });
 });
 
-describe('Alert.Heading', () => {
+describe('AlertHeading', () => {
   it('matches snapshot', () => {
     const component = shallow(<AlertHeading/>);
     expect(component).toMatchSnapshot();
   });
 
-  it('contains children', () => {
-    const component = shallow(<AlertHeading><div>headingtext</div></AlertHeading>);
-    expect(component.contains(<div>headingtext</div>)).toEqual(true);
-  });
-
-  it('has className alert-link', () => {
-    const component = shallow(<AlertHeading />);
-    expect(component.props().className).toBe("alert-heading");
-  });
-
-  it('appends additional className', () => {
-    const component = shallow(<AlertHeading className="monkey" />);
+  it('has expected props', () => {
+    const child = <div>headingtext</div>;
+    const component = shallow(<AlertHeading className={ cn }>{ child }</AlertHeading>);
     const classNameArray = component.prop('className').split(' ');
+    expect(component.contains(child)).toEqual(true);
     expect(classNameArray).toContain('alert-heading');
-    expect(classNameArray).toContain('monkey');
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
   });
 });

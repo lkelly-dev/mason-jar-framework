@@ -6,14 +6,14 @@ exports[`Avatar matches snapshot 1`] = `
 />
 `;
 
-exports[`Avatar.Image matches snapshot 1`] = `
+exports[`AvatarImage matches snapshot 1`] = `
 <img
   alt=""
   className="avatar-img"
 />
 `;
 
-exports[`Avatar.Title matches snapshot 1`] = `
+exports[`AvatarTitle matches snapshot 1`] = `
 <span
   className="avatar-title"
 />

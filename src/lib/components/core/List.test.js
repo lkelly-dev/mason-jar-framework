@@ -11,13 +11,13 @@ describe('List', () => {
   it('has expected props', () => {
     const children = <div>child</div>
     const component = shallow(
-      <List className="nifty" what="ever" >{ children }</List>
+      <List className={ cn } what="ever" >{ children }</List>
     );
     const classNameArray = component.prop('className').split(' ');
     expect(component.contains(children)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('list-group');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
   });
 });
 
@@ -30,12 +30,12 @@ describe('ListItem', () => {
   it('has expected props', () => {
     const children = <div>child</div>
     const component = shallow(
-    <ListItem className="nifty" what="ever" >{ children }</ListItem>
+    <ListItem className={ cn } what="ever" >{ children }</ListItem>
     );
     const classNameArray = component.prop('className').split(' ');
     expect(component.contains(children)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('list-group-item');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
   });
 });

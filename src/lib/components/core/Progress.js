@@ -3,19 +3,17 @@ import PropTypes from 'prop-types';
 import { cx } from 'emotion';
 import MODIFIERS from './Modifiers';
 
-// FIXME should this be a stateful component?
-
 const Progress = props => {
-  const { children, className, now, min, max, size, ...rest } = props;
+  const { children, className, currentValue, min, max, size, ...rest } = props;
   const progressSize = MODIFIERS.SIZE[size] ? `progress-${size}` : null;
   const progressClass = cx('progress', progressSize, className);
   return (
     <div className={progressClass} {...rest}>
       <div
-        style={{ width: `${now}%` }}
+        style={{ width: `${currentValue}%` }}
         className="progress-bar"
         role="progressbar"
-        aria-valuenow={now}
+        aria-valuenow={currentValue}
         aria-valuemin={min || 0}
         aria-valuemax={max || 100}
       />
@@ -26,7 +24,7 @@ const Progress = props => {
 export { Progress };
 
 Progress.propTypes = {
-  now: PropTypes.number.isRequired,
+  currentValue: PropTypes.number.isRequired,
 };
 
 //  min: PropTypes.number,

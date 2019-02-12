@@ -72,7 +72,6 @@ const CardAvatar = props => {
   );
 };
 
-// TODO: Test this
 const CardTable = props => {
   const { children, className, ...rest } = props;
   const cardTableClass = cx('card-table', className);

@@ -9,7 +9,6 @@ describe('Nav', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected basic props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <Nav
@@ -33,9 +32,7 @@ describe('NavTab', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected basic props', () => {
-    const cn = 'neato',
-          overflow = 'overflow',
-          size = 'sm',
+    const overflow = 'overflow',
           children = <div>child</div>;
     const component = shallow(
       <NavTab
@@ -63,7 +60,6 @@ describe('NavItem', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected basic props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <NavItem
@@ -87,7 +83,6 @@ describe('NavDropdown', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected basic props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <NavDropdown
@@ -97,10 +92,10 @@ describe('NavDropdown', () => {
       </NavDropdown>
     );
     const classNameArray = component.prop('className').split(' ');
-    // FIXME should this class be nav-dropdown, or is nav-item okay?
     expect(classNameArray).toContain('nav-item');
+    expect(classNameArray).toContain('dropdown');
     expect(classNameArray).toContain(cn);
-    expect(classNameArray).toHaveLength(2);
+    expect(classNameArray).toHaveLength(3);
     expect(component.prop('what')).toBe('ever');
     expect(component.type()).toBe(Dropdown)
   })
@@ -112,8 +107,7 @@ describe('NavLink', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato',
-          active = 'active',
+    const active = 'active',
           children = <div>children</div>;
     const component = shallow(
       <NavLink
@@ -124,7 +118,6 @@ describe('NavLink', () => {
       </NavLink>
     );
     const classNameArray = component.prop('className').split(' ');
-    // FIXME should this class be nav-dropdown, or is nav-item okay?
     expect(classNameArray).toContain('nav-link');
     expect(classNameArray).toContain('active');
     expect(classNameArray).toContain(cn);

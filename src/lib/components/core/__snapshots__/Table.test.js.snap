@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table Table matches snapshot 1`] = `
-<table
-  className="table"
-/>
-`;
-
 exports[`Table matches snapshot 1`] = `
 <table
   className="table"

@@ -15,21 +15,43 @@ describe('Avatar', () => {
   });
 
   it('has expected classnames', () => {
-    const componentBasic = shallow(<Avatar><div>A</div></Avatar>);
-    const componentWithOptions = shallow(<Avatar size="sm" status="offline" className="nifty" whatever="dude">A</Avatar>);
+    const child = <div>child</div>,
+          size = 'sm',
+          status = 'offline',
+          cn = 'nifty';
+    const componentBasic = shallow(<Avatar>{ child }</Avatar>);
+    const componentWithOptions = shallow(
+      <Avatar
+        size={ size }
+        status= { status }
+        className={ cn }
+        whatever="dude">
+        { child }
+      </Avatar>
+    );
     const classNameArray = componentWithOptions.prop('className').split(' ');
     expect(componentBasic.props().className).toBe('avatar');
-    expect(componentBasic.contains(<div>A</div>)).toEqual(true);
+    expect(componentBasic.contains(child)).toEqual(true);
     expect(classNameArray).toContain('avatar');
-    expect(classNameArray).toContain('avatar-sm');
-    expect(classNameArray).toContain('avatar-offline');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(`avatar-${size}`);
+    expect(classNameArray).toContain(`avatar-${status}`);
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(4)
     expect(componentWithOptions.prop('whatever')).toBe('dude');
   });
+
+  it('doesnt use invalid prop values', () => {
+    const size = 'wicked-big',
+          status = 'single';
+    const component = shallow(<Avatar size={ size } status={ status }/>);
+    const classNameArray = component.prop('className').split(' ');
+    expect(classNameArray).not.toContain(`avatar-${size}`);
+    expect(classNameArray).not.toContain(`avatar-${status}`);
+    expect(classNameArray).toHaveLength(1)
+  });
 });
 
-describe('Avatar.Image', () => {
+describe('AvatarImage', () => {
 
   it('matches snapshot', () => {
     const component = shallow(<AvatarImage />);
@@ -37,18 +59,25 @@ describe('Avatar.Image', () => {
   });
 
   it('has correct props', () => {
-    const component = shallow(<AvatarImage shape="rounded" alt="User Avatar" className="nifty" whatever="dude" />);
+    const component = shallow(<AvatarImage shape={ shape } alt="User Avatar" className={ cn } whatever="dude" />);
     const classNameArray = component.prop('className').split(' ');
     expect(classNameArray).toContain('avatar-img');
-    expect(classNameArray).toContain('rounded');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(shape);
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(3);
     expect(component.prop('alt')).toBe("User Avatar");
     expect(component.prop('whatever')).toBe('dude');
   });
+
+  it('doesnt use invalid prop values', () => {
+    const component = shallow(<AvatarImage shape={ badShape }/>);
+    const classNameArray = component.prop('className').split(' ');
+    expect(classNameArray).not.toContain(badShape);
+    expect(classNameArray).toHaveLength(1)
+  });
 });
 
-describe('Avatar.Title', () => {
+describe('AvatarTitle', () => {
 
   it('matches snapshot', () => {
     const component = shallow(<AvatarTitle />);
@@ -56,13 +85,28 @@ describe('Avatar.Title', () => {
   });
 
   it('has correct props', () => {
-    const component = shallow(<AvatarTitle shape="rounded" className="nifty" whatever="dude">avatar body</AvatarTitle>);
+    const child = <div>child</div>;
+    const component = shallow(
+      <AvatarTitle
+        shape={ shape }
+        className={ cn }
+        whatever="dude">
+        { child }
+      </AvatarTitle>
+    );
     const classNameArray = component.prop('className').split(' ');
     expect(classNameArray).toContain('avatar-title');
-    expect(classNameArray).toContain('rounded');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(shape);
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(3);
     expect(component.prop('whatever')).toBe('dude');
-    expect(component.prop('children')).toBe('avatar body')
+    expect(component.contains(child)).toEqual(true)
+  });
+
+  it('doesnt use invalid prop values', () => {
+    const component = shallow(<AvatarTitle shape={ badShape }/>);
+    const classNameArray = component.prop('className').split(' ');
+    expect(classNameArray).not.toContain(badShape);
+    expect(classNameArray).toHaveLength(1)
   });
 });

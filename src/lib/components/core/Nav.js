@@ -41,7 +41,7 @@ const NavItem = props => {
 
 const NavDropdown = props => {
   const { children, className, ...rest } = props;
-  const navDropdownClass = cx('nav-item', className);
+  const navDropdownClass = cx('nav-item', 'dropdown', className);
   return (
     <Dropdown className={navDropdownClass} {...rest}>
       {children}

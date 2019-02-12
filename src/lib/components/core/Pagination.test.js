@@ -8,7 +8,6 @@ describe('Pagination', () => {
     expect(component).toMatchSnapshot();
   });
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div>children</div>
     const component = shallow(
       <Pagination
@@ -32,7 +31,6 @@ describe('PaginationItem', () => {
     expect(component).toMatchSnapshot();
   });
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div>children</div>
     const component = shallow(
     <PaginationItem
@@ -56,7 +54,6 @@ describe('PaginationLink', () => {
     expect(component).toMatchSnapshot();
   });
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div>children</div>
     const component = shallow(
     <PaginationLink

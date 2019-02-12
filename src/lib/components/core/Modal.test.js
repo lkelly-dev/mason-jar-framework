@@ -9,7 +9,7 @@ import { Button } from './Button';
 describe('Modal', () => {
   it('matches snapshot', () => {
     //FIXME Should element be required? also the name is not great. Maybe elementId or just use id...
-    const component = shallow(<Modal element="div"></Modal>);
+    const component = shallow(<Modal elementId="div"></Modal>);
     expect(component).toMatchSnapshot();
   });
 
@@ -17,7 +17,7 @@ describe('Modal', () => {
     const id = "some-id"
     const children = <div>child</div>
     const component = shallow(
-      <Modal element={ id }>
+      <Modal elementId={ id }>
         { children }
       </Modal>
     );
@@ -32,7 +32,7 @@ describe('Modal', () => {
 describe('ModalTrigger', () => {
   it('matches snapshot', () => {
     //FIXME element should not be required. also the name is not great
-    const component = shallow(<ModalTrigger element="div"></ModalTrigger>);
+    const component = shallow(<ModalTrigger elementId="div"></ModalTrigger>);
     expect(component).toMatchSnapshot();
   });
 
@@ -40,14 +40,14 @@ describe('ModalTrigger', () => {
     const id = "some-id"
     const children = <div>child</div>
     const component = shallow(
-      <ModalTrigger what="ever" element={ id }>
+      <ModalTrigger what="ever" elementId={ id }>
       { children }
       </ModalTrigger>
     );
     expect(component.contains(children)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(component.prop('data-target')).toBe(`#${id}`);
-    expect(component.type()).toBe(Button)
+    expect(component.type()).toBe(Button);
   });
 });
 
@@ -60,7 +60,6 @@ describe('Modal.Content', () => {
 
   it('has expected props', () => {
     const children = <div> children </div>;
-    const cn = 'neato';
     const component = shallow(
       <Modal.Content
         what="ever"
@@ -85,7 +84,6 @@ describe('ModalHeader', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <ModalHeader
@@ -110,7 +108,6 @@ describe('ModalBody', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <ModalBody
@@ -135,7 +132,6 @@ describe('ModalFooter', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <ModalFooter
@@ -160,7 +156,6 @@ describe('ModalTitle', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <ModalTitle
@@ -185,7 +180,6 @@ describe('ModalClose', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato';
     const component = shallow(
       <ModalClose
         what="ever"

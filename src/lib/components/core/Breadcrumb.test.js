@@ -9,15 +9,16 @@ describe('Breadcrumb', () => {
   });
 
   it('has expected props', () => {
+    const child = <div>someNavThing</div>;
     const component = shallow(
-      <Breadcrumb className="neato">
-        <div>someNavThing</div>
+      <Breadcrumb className={ cn }>
+        { child }
       </Breadcrumb>
     );
     const classNameArray = component.prop('className').split(' ');
-    expect(component.contains(<div>someNavThing</div>)).toEqual(true);
+    expect(component.contains(child)).toEqual(true);
     expect(classNameArray).toContain('breadcrumb');
-    expect(classNameArray).toContain('neato');
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
   });
 });
@@ -29,14 +30,25 @@ describe('BreadcrumbItem', () => {
   })
 
   it('has expected props', () => {
-    const component = shallow(<BreadcrumbItem status="active" className="neato" whatever="dude">A</BreadcrumbItem>);
+    const child = <div>someNavThing</div>;
+    const component = shallow(
+      <BreadcrumbItem status={ status } className={ cn } whatever="dude">
+        { child }
+      </BreadcrumbItem>
+    );
     const classNameArray = component.prop('className').split(' ');
-    expect(component.prop('children')).toBe('A');
+    expect(component.contains(child)).toEqual(true)
     expect(classNameArray).toContain('breadcrumb-item');
-    expect(classNameArray).toContain('active');
-    expect(classNameArray).toContain('neato');
+    expect(classNameArray).toContain(status);
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(3);
-    expect(component.prop('className')).toBe('breadcrumb-item active neato');
     expect(component.prop('whatever')).toBe('dude');
   });
+
+  it('doesnt use incorrect props', () => {
+    const component = shallow(<BreadcrumbItem status={ badStatus } />);
+    const classNameArray = component.prop('className').split(' ');
+    expect(classNameArray).not.toContain(badStatus);
+    expect(classNameArray).toHaveLength(1);
+  })
 });

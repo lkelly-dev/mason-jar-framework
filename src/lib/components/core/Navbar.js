@@ -8,7 +8,7 @@ const Navbar = props => {
   const navbarColor = MODIFIERS.COLOR[color] ? `navbar-${color}` : null;
   const expandSize = MODIFIERS.SIZE[expand] ? `navbar-expand-${expand}` : null;
   const navbarFixed = MODIFIERS.FIXED[fixed] ? `fixed-${fixed}` : null;
-  const navbarVertical = vertical ? 'navbar-vertical' : null;
+  const navbarVertical = MODIFIERS.ORIENTATION[vertical] ? 'navbar-vertical' : null;
   const navbarClass = cx('navbar', navbarColor, expandSize, navbarFixed, navbarVertical, className);
   return (
     <nav className={navbarClass} {...rest}>

@@ -7,13 +7,19 @@ exports[`Alert matches snapshot 1`] = `
 />
 `;
 
-exports[`Alert.Heading matches snapshot 1`] = `
+exports[`Alert.Link matches snapshot 1`] = `
+<a
+  className="alert-link"
+/>
+`;
+
+exports[`AlertHeading matches snapshot 1`] = `
 <h4
   className="alert-heading"
 />
 `;
 
-exports[`Alert.Link matches snapshot 1`] = `
+exports[`AlertLink matches snapshot 1`] = `
 <a
   className="alert-link"
 />

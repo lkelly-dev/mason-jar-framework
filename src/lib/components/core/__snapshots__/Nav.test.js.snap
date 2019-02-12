@@ -8,7 +8,7 @@ exports[`Nav Nav matches snapshot 1`] = `
 
 exports[`NavDropdown NavDropdown matches snapshot 1`] = `
 <Dropdown
-  className="nav-item"
+  className="nav-item dropdown"
 />
 `;
 

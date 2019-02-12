@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Select from 'react-select';
 import {
   Form,
@@ -27,7 +27,7 @@ describe('Form', () => {
     const childComponent = <div>Child Component</div>;
     const component = shallow(
       <Form
-        className="nifty"
+        className={ cn }
         what="ever" >
         { childComponent }
       </Form>
@@ -35,7 +35,7 @@ describe('Form', () => {
     const classNameArray = component.prop('className').split(' ');
     expect(component.contains(childComponent)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('form');
     expect(classNameArray).toHaveLength(1);
   });
@@ -52,7 +52,7 @@ describe('FormGroup', () => {
     const childComponent = <div>Child Component</div>;
     const component = shallow(
       <FormGroup
-        className="nifty"
+        className={ cn }
         what="ever" >
         { childComponent }
       </FormGroup>
@@ -61,7 +61,7 @@ describe('FormGroup', () => {
     expect(component.contains(childComponent)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('form-group');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(2);
   });
@@ -78,7 +78,7 @@ describe('FormRow', () => {
     const childComponent = <div>Child Component</div>;
     const component = shallow(
       <FormRow
-        className="nifty"
+        className={ cn }
         what="ever" >
         { childComponent }
       </FormRow>
@@ -87,7 +87,7 @@ describe('FormRow', () => {
     expect(component.contains(childComponent)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('form-row');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(2);
   });
@@ -103,25 +103,23 @@ describe('FormInput', () => {
   it('has expected props', () => {
     const childComponent = <div>Child Component</div>;
     const component = shallow(
-      <FormInput className="nifty" validity="valid" what="ever" />
+      <FormInput className={ cn } validity={ validity } what="ever" />
     );
     // TODO check to make sure passing in children throws an error
     const classNameArray = component.prop('className').split(' ');
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('form-control');
-    expect(classNameArray).toContain('valid');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(validity);
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('input');
     expect(classNameArray).toHaveLength(3);
   });
 
-  // TODO check for error thrown.
-  // https://airbnb.io/enzyme/docs/api/ShallowWrapper/simulateError.html
+  it('doesnt allow invalid props', () => {
+    const component = shallow(<FormInput validity={ badValidity } />)
+    expect(component.prop('className').split(' ')).not.toContain(badValidity);
+  })
 
-  /* it('throws error if there are children', () => {
-   *   const component = shallow(<FormInput><div>any child at all</div></FormInput>);
-   *   expect(component).toThrow(/children/);
-   * }); */
 });
 
 describe('FormSelect', () => {
@@ -132,21 +130,37 @@ describe('FormSelect', () => {
   });
 
   it('has expected props', () => {
+    const children = ['one', 'two', 'three'].map((val) => {
+            return (
+              <option key={ val.toString() } value={val.toString()}>
+                { val }
+              </option>
+            );
+          });
     const component = shallow(
       <FormSelect
-        className="nifty"
-        validity="valid"
-        what="ever" />
+        className={ cn }
+        validity={ validity }
+        what="ever">
+        { children }
+        </FormSelect>
+
     );
     // TODO should take a data array for creating options, and disallow children
     const classNameArray = component.prop('className').split(' ');
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('form-control');
-    expect(classNameArray).toContain('valid');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(validity);
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('select');
     expect(classNameArray).toHaveLength(3);
+    expect(component.contains(children)).toEqual(true);
   });
+
+  it('doesnt allow invalid props', () => {
+    const component = shallow(<FormSelect validity={ badValidity } />)
+    expect(component.prop('className').split(' ')).not.toContain(badValidity);
+  })
 });
 
 describe('FormSearchSelect', () => {
@@ -159,18 +173,23 @@ describe('FormSearchSelect', () => {
   it('has expected props', () => {
     const component = shallow(
       <FormSearchSelect
-        className="nifty"
-        validity="valid"
+        className={ cn }
+        validity={ validity }
         what="ever" />
     );
     const classNameArray = component.prop('className').split(' ');
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('form-control');
-    expect(classNameArray).toContain('valid');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(validity);
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe(Select);
     expect(classNameArray).toHaveLength(3);
   });
+
+  it('doesnt allow invalid props', () => {
+    const component = shallow(<FormSearchSelect validity={ badValidity } />)
+    expect(component.prop('className').split(' ')).not.toContain(badValidity);
+  })
 });
 
 describe('FormTextarea', () => {
@@ -183,18 +202,23 @@ describe('FormTextarea', () => {
   it('has expected props', () => {
     const component = shallow(
       <FormTextarea
-        className="nifty"
-        validity="valid"
+        className={ cn }
+        validity={ validity }
         what="ever" />
     );
     const classNameArray = component.prop('className').split(' ');
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('form-control');
-    expect(classNameArray).toContain('valid');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(validity);
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('textarea');
     expect(classNameArray).toHaveLength(3);
   });
+
+  it('doesnt allow invalid props', () => {
+    const component = shallow(<FormTextarea validity={ badValidity } />)
+    expect(component.prop('className').split(' ')).not.toContain(badValidity);
+  })
 });
 
 describe('FormLabel', () => {
@@ -208,8 +232,8 @@ describe('FormLabel', () => {
     const childComponent = <div>Child Component</div>;
     const component = shallow(
       <FormLabel
-        className="nifty"
-        validity="valid"
+        className={ cn }
+        validity={ validity }
         what="ever">
         { childComponent }
       </FormLabel>
@@ -218,11 +242,16 @@ describe('FormLabel', () => {
     expect(component.contains(childComponent)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('form-check-label');
-    expect(classNameArray).toContain('valid');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(validity);
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('label');
     expect(classNameArray).toHaveLength(3);
   });
+
+  it('doesnt allow invalid props', () => {
+    const component = shallow(<FormLabel validity={ badValidity } />)
+    expect(component.prop('className').split(' ')).not.toContain(badValidity);
+  })
 });
 
 describe('FormCheck', () => {
@@ -233,12 +262,13 @@ describe('FormCheck', () => {
   });
 
   it('has expected props', () => {
-    const compId = "comp-id";
-    const labelValue = 'this is a label';
+    const compId = 'comp-id',
+          labelValue = 'this is a label';
+
     const component = shallow(
       <FormCheck
-        className="nifty"
-        validity="valid"
+        className={ cn }
+        validity={ validity }
         id={compId}
         label={labelValue}
         what="ever">
@@ -248,14 +278,18 @@ describe('FormCheck', () => {
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('form-group');
     expect(classNameArray).toContain('form-check');
-    expect(classNameArray).toContain('valid');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(validity);
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(4);
     expect(component.find('input').prop('id')).toBe(compId);
     expect(component.find('label').prop('htmlFor')).toBe(compId);
     expect(component.find('label').contains(labelValue)).toEqual(true);
   });
+  it('doesnt allow invalid props', () => {
+    const component = shallow(<FormCheck validity={ badValidity } />)
+    expect(component.prop('className').split(' ')).not.toContain(badValidity);
+  })
 });
 
 describe('FormToggle', () => {
@@ -266,17 +300,17 @@ describe('FormToggle', () => {
   });
 
   it('has expected props', () => {
-    const compId = "some-id";
+    const compId = 'some-id';
     const component = shallow(
       <FormToggle
         id={compId}
-        className="nifty"
+        className={ cn }
         what="ever">
       </FormToggle>
     );
     const classNameArray = component.prop('className').split(' ');
     expect(component.prop('what')).toBe('ever');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toContain('custom-control'); // FIXME are these classnames okay??
     expect(classNameArray).toContain('custom-checkbox-toggle');
     expect(component.type()).toBe('div');

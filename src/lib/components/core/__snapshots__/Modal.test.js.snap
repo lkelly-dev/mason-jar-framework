@@ -43,13 +43,6 @@ exports[`ModalClose matches snapshot 1`] = `
 </button>
 `;
 
-exports[`ModalContent matches snapshot 1`] = `
-<Button
-  data-target="#div"
-  data-toggle="modal"
-/>
-`;
-
 exports[`ModalFooter matches snapshot 1`] = `
 <div
   className="modal-footer"

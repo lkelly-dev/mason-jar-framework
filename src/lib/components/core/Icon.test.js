@@ -9,8 +9,7 @@ describe('Icon', () => {
   });
 
   it('has expected props', () => {
-    const iconName = 'anything-at-all'; // TODO this probably shouldnt be so
-    const cn = 'nifty';
+    const iconName = 'anything-at-all'; 
     const component = shallow(
       <Icon name={ iconName } className={ cn } what="ever" />
     );
@@ -18,8 +17,8 @@ describe('Icon', () => {
     expect(component.type()).toBe('span')
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('fe');
-    expect(classNameArray).toContain('nifty');
     expect(classNameArray).toContain(`fe-${iconName}`);
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(3);
   });
   it('can pass custom element type', ()=>{

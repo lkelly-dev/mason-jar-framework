@@ -35,14 +35,14 @@ describe('HeaderBody', () => {
     const children = <div>Header child</div>;
     const component = shallow(
       <HeaderBody
-        className="nifty"
+        className={ cn }
         what="ever">
         { children }
       </HeaderBody>
     )
     const classNameArray = component.prop('className').split(' ');
     expect(classNameArray).toContain('header-body')
-    expect(classNameArray).toContain('nifty')
+    expect(classNameArray).toContain(cn)
     expect(classNameArray).toHaveLength(2)
     expect(component.prop('what')).toBe('ever');
   })

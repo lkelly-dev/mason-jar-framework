@@ -9,7 +9,6 @@ describe('Navbar', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected basic props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <Navbar
@@ -27,9 +26,7 @@ describe('Navbar', () => {
   })
   it('has expected complex props', () => {
     const cn = 'neato',
-          expand = 'sm',
-          color = 'warning',
-          fixed = 'top',
+          expand = size,
           vertical = 'vertical';
     const children = <div> children </div>;
     const component = shallow(
@@ -53,37 +50,27 @@ describe('Navbar', () => {
     expect(classNameArray).toHaveLength(6);
     expect(component.prop('what')).toBe('ever');
     expect(component.type()).toBe('nav')
-  })
-});
-
-
-
-/*
-describe('ModalClose', () => {
-  it('matches snapshot', () => {
-    const component = shallow(<ModalClose></ModalClose>);
-    expect(component).toMatchSnapshot();
-  })
-  it('has expected props', () => {
-    const cn = 'neato';
+  });
+  it('excludes invalid props', () => {
     const component = shallow(
-      <ModalClose
+      <Navbar
         what="ever"
-        className={ cn }>
-      </ModalClose>
+        color={ badColor }
+        expand={ badSize }
+        fixed={ badFixed }
+        vertical={ badOrientation } >
+      </Navbar>
     );
     const classNameArray = component.prop('className').split(' ');
-    expect(classNameArray).toHaveLength(2);
-    expect(classNameArray).toContain('close');
-    expect(classNameArray).toContain(cn);
-    expect(component.prop('what')).toBe('ever');
-    expect(component.prop('type')).toBe('button');
-    expect(component.prop('data-dismiss')).toBe('modal');
-    expect(component.prop('aria-label')).toBe('Close');
-    expect(component.type()).toBe('button')
+    expect(classNameArray).toContain('navbar');
+    expect(classNameArray).not.toContain(`navbar-${badColor}`);
+    expect(classNameArray).not.toContain(`navbar-expand-${badSize}`);
+    expect(classNameArray).not.toContain(`fixed-${badFixed}`);
+    expect(classNameArray).not.toContain('navbar-vertical');
+    expect(classNameArray).toHaveLength(1)
+
   })
 });
-*/
 
 describe('NavbarNav', () => {
   it('Navbar matches snapshot', () => {
@@ -91,7 +78,6 @@ describe('NavbarNav', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <NavbarNav
@@ -116,7 +102,6 @@ describe('NavbarBrand', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <NavbarBrand
@@ -141,7 +126,6 @@ describe('NavbarCollapse', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div> children </div>;
     const component = shallow(
       <NavbarCollapse
@@ -167,7 +151,6 @@ describe('NavbarToggle', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato';
     const component = shallow(
       <NavbarToggle
         what="ever"
@@ -179,7 +162,6 @@ describe('NavbarToggle', () => {
     expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
     expect(component.prop('what')).toBe('ever');
-    // expect(component.contains(children)).toEqual(true);
     expect(component.type()).toBe(Button);
   });
 });
@@ -190,7 +172,6 @@ describe('NavbarText', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div>children</div>
     const component = shallow(
       <NavbarText

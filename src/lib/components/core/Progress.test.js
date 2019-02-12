@@ -4,14 +4,11 @@ import { Progress } from "./Progress";
 
 describe('Progress', () => {
   it('Progress matches snapshot', () => {
-    const component = shallow(<Progress now={ 0 }></Progress>);
+    const component = shallow(<Progress currentValue={ 0 }></Progress>);
     expect(component).toMatchSnapshot();
   });
   it('has expected props', () => {
-    // FIXME this component may need refactoring
-    const cn = 'neato',
-          size = 'sm',
-          now = 0,
+    const currentValue = 0,
           min = 0,
           max = 100;
 
@@ -20,7 +17,7 @@ describe('Progress', () => {
         what="ever"
         className={ cn }
         size={ size }
-        now={ now }
+        currentValue={ currentValue }
         min={ min }
         max={ max }>
       </Progress>

@@ -8,7 +8,6 @@ describe('Table', () => {
     expect(component).toMatchSnapshot();
   });
   it('has expected props', () => {
-    const cn = 'neato';
     const children = <div>child</div>;
     const component = shallow(
       <Table

@@ -8,29 +8,51 @@ describe('Button', () => {
     expect(component).toMatchSnapshot();
   })
   it('has expected props', ()=> {
+    const child = <div>child</div>;
     const component = shallow(
       <Button
-        color="primary"
-        outline="warning"
-        size="sm"
-        status="active"
-        shape="rounded"
-        className="nifty"
-        whatever="dude">
-        {"Cool"}
+        color={ color }
+        outline={ outline }
+        size={ size }
+        status={ status }
+        shape={ shape }
+        className={ cn }
+        what="ever">
+        { child }
       </Button>
     );
     const classNameArray = component.prop('className').split(' ');
     expect(classNameArray).toContain('btn');
-    expect(classNameArray).toContain('btn-primary');
-    expect(classNameArray).toContain('btn-outline-warning');
-    expect(classNameArray).toContain('btn-sm');
-    expect(classNameArray).toContain('btn-rounded');
-    expect(classNameArray).toContain('active');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(`btn-${color}`);
+    expect(classNameArray).toContain(`btn-outline-${outline}`);
+    expect(classNameArray).toContain(`btn-${size}`);
+    expect(classNameArray).toContain(`btn-${shape}`);
+    expect(classNameArray).toContain(status);
+    expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(8);
-    expect(component.prop('whatever')).toBe('dude');
+    expect(component.prop('what')).toBe('ever');
+    expect(component.contains(child)).toEqual(true);
   })
+
+  it('has no invalid props', ()=> {
+    const component = shallow(
+      <Button
+        color={ badColor }
+        outline={ badOutline }
+        size={ badSize }
+        status={ badStatus }
+        shape={ badShape } >
+      </Button>
+    );
+    const classNameArray = component.prop('className').split(' ');
+    expect(classNameArray).toContain('btn');
+    expect(classNameArray).not.toContain(`btn-${badColor}`);
+    expect(classNameArray).not.toContain(`btn-outline-${badOutline}`);
+    expect(classNameArray).not.toContain(`btn-${badSize}`);
+    expect(classNameArray).not.toContain(`btn-${badShape}`);
+    expect(classNameArray).not.toContain(badStatus);
+    expect(classNameArray).toHaveLength(2);
+  });
 });
 
 describe('ButtonGroup', () => {
@@ -40,22 +62,31 @@ describe('ButtonGroup', () => {
   })
 
   it('has expected props', () => {
+    const child = <Button>wow</Button>;
     const component = shallow(
       <ButtonGroup
-        size="sm"
-        orientation="vertical"
-        className="neato"
-        whatever="dude">
-        <Button>wow</Button>
+        size={ size }
+        orientation={ orientation }
+        className={ cn }
+        what="ever">
+        { child }
       </ButtonGroup>
     );
     const classNameArray = component.prop('className').split(' ');
-    expect(component.contains(<Button>wow</Button>)).toEqual(true);
+    expect(component.contains(child)).toEqual(true);
     expect(classNameArray).toContain('btn-group');
-    expect(classNameArray).toContain('btn-group-sm');
-    expect(classNameArray).toContain('btn-group-vertical');
-    expect(classNameArray).toContain('neato');
-    expect(component.prop('whatever')).toBe('dude');
+    expect(classNameArray).toContain(`btn-group-${size}`);
+    expect(classNameArray).toContain(`btn-group-${orientation}`);
+    expect(classNameArray).toContain(cn);
+    expect(component.prop('what')).toBe('ever');
+  })
+
+  it('has no invalid props', () => {
+    const component = shallow(<ButtonGroup size={ badSize } orientation={ badOrientation }> </ButtonGroup>);
+    const classNameArray = component.prop('className').split(' ');
+    expect(classNameArray).toContain('btn-group');
+    expect(classNameArray).not.toContain(`btn-group-${badSize}`);
+    expect(classNameArray).not.toContain(`btn-group-${badOrientation}`);
   })
 });
 
