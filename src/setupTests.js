@@ -4,7 +4,6 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 // good values
-
 global.cn = 'neato';
 global.color = 'danger';
 global.shape = 'rounded';
@@ -16,7 +15,6 @@ global.validity = 'valid';
 global.fixed = 'top';
 
 // bad values
-
 global.badColor = 'potato';
 global.badShape = 'star';
 global.badStatus = 'single';
