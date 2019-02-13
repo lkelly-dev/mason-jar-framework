@@ -9,4 +9,4 @@ deploy:
   on:
     tags: true
     repo: ronoco-ins/mason-jar-framework
-    branch: develop
+    branch: master
