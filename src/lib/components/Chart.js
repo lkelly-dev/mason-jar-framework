@@ -14,7 +14,7 @@ const Chart = props => {
 const ChartCanvas = props => {
   const { className, ...rest } = props;
   const chartClass = cx('chart-canvas', className);
-  return <chart className={chartClass} {...rest} />;
+  return <canvas className={chartClass} {...rest} />;
 };
 
 Chart.Canvas = ChartCanvas;

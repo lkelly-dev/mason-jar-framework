@@ -33,7 +33,7 @@ const DropdownFeatherToggle = props => {
   const { className, ...rest } = props;
   const dropdownToggleClass = cx('dropdown-ellipses', 'dropdown-toggle', className);
   return (
-    <button
+    <Button
       type="button"
       className={dropdownToggleClass}
       data-toggle="dropdown"
@@ -43,7 +43,7 @@ const DropdownFeatherToggle = props => {
       {...rest}
     >
       <i className="fe fe-more-vertical" />
-    </button>
+    </Button>
   );
 };
 

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav Nav matches snapshot 1`] = `
+<nav
+  className="nav"
+/>
+`;
+
+exports[`NavDropdown NavDropdown matches snapshot 1`] = `
+<Dropdown
+  className="nav-item dropdown"
+/>
+`;
+
+exports[`NavItem NavItem matches snapshot 1`] = `
+<div
+  className="nav-item"
+/>
+`;
+
+exports[`NavLink NavLink matches snapshot 1`] = `
+<div
+  className="nav-link css-1h5x3dy"
+/>
+`;
+
+exports[`NavTab NavTab matches snapshot 1`] = `
+<nav
+  className="nav nav-tabs"
+/>
+`;

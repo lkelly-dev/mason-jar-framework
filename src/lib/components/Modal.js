@@ -4,9 +4,9 @@ import { cx } from 'emotion';
 import { Button } from './Button';
 
 const Modal = props => {
-  const { element, children } = props;
+  const { elementId, children } = props;
   return (
-    <div className="modal" tabIndex="-1" role="dialog" aria-hidden="true" id={element}>
+    <div className="modal" tabIndex="-1" role="dialog" aria-hidden="true" id={elementId}>
       <div className="modal-dialog" role="document">
         {children}
       </div>
@@ -15,9 +15,9 @@ const Modal = props => {
 };
 
 const ModalTrigger = props => {
-  const { children, element, ...rest } = props;
+  const { children, elementId, ...rest } = props;
   return (
-    <Button data-toggle="modal" data-target={`#${element}`} {...rest}>
+    <Button data-toggle="modal" data-target={`#${elementId}`} {...rest}>
       {children}
     </Button>
   );
@@ -100,9 +100,9 @@ Modal.Trigger = ModalTrigger;
 export { Modal, ModalHeader, ModalTitle, ModalBody, ModalFooter, ModalClose, ModalTrigger };
 
 Modal.propTypes = {
-  element: PropTypes.string.isRequired,
+  elementId: PropTypes.string.isRequired,
 };
 
 ModalTrigger.propTypes = {
-  element: PropTypes.string.isRequired,
+  elementId: PropTypes.string.isRequired,
 };

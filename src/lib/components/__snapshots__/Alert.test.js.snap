@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert matches snapshot 1`] = `
+<div
+  className="alert"
+  role="alert"
+/>
+`;
+
+exports[`AlertHeading matches snapshot 1`] = `
+<h4
+  className="alert-heading"
+/>
+`;
+
+exports[`AlertLink matches snapshot 1`] = `
+<a
+  className="alert-link"
+/>
+`;

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal matches snapshot 1`] = `
+<div
+  aria-hidden="true"
+  className="modal"
+  id="div"
+  role="dialog"
+  tabIndex="-1"
+>
+  <div
+    className="modal-dialog"
+    role="document"
+  />
+</div>
+`;
+
+exports[`Modal.Content matches snapshot 1`] = `
+<div
+  className="modal-content"
+  element="div"
+/>
+`;
+
+exports[`ModalBody matches snapshot 1`] = `
+<div
+  className="modal-body"
+/>
+`;
+
+exports[`ModalClose matches snapshot 1`] = `
+<button
+  aria-label="Close"
+  className="close"
+  data-dismiss="modal"
+  type="button"
+>
+  <span
+    aria-hidden="true"
+  >
+    ×
+  </span>
+</button>
+`;
+
+exports[`ModalFooter matches snapshot 1`] = `
+<div
+  className="modal-footer"
+/>
+`;
+
+exports[`ModalHeader matches snapshot 1`] = `
+<div
+  className="modal-header"
+/>
+`;
+
+exports[`ModalTitle matches snapshot 1`] = `
+<h3
+  className="modal-title"
+/>
+`;
+
+exports[`ModalTrigger matches snapshot 1`] = `
+<Button
+  data-target="#div"
+  data-toggle="modal"
+/>
+`;

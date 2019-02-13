@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar matches snapshot 1`] = `
+<div
+  className="avatar"
+/>
+`;
+
+exports[`AvatarImage matches snapshot 1`] = `
+<img
+  alt=""
+  className="avatar-img"
+/>
+`;
+
+exports[`AvatarTitle matches snapshot 1`] = `
+<span
+  className="avatar-title"
+/>
+`;

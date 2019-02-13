@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb Breadcrumb matches snapshot 1`] = `
+<div
+  className="breadcrumb"
+/>
+`;
+
+exports[`BreadcrumbItem Breadcrumb matches snapshot 1`] = `
+<div
+  className="breadcrumb-item"
+/>
+`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chart Chart matches snapshot 1`] = `
+<div
+  className="chart"
+/>
+`;
+
+exports[`ChartCanvas ChartCanvas matches snapshot 1`] = `
+<canvas
+  className="chart-canvas"
+/>
+`;

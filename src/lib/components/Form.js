@@ -30,16 +30,23 @@ const FormRow = props => {
 
 const FormInput = props => {
   const { validity, className, ...rest } = props;
+  // TODO figure out how to test this error.
+  if(typeof rest['children'] !== 'undefined') { throw new Error('input elements cannot contain children')}
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
   return <input className={formClass} {...rest} />;
 };
 
+
 const FormSelect = props => {
-  const { validity, className, ...rest } = props;
+  const { validity, className, children, ...rest } = props;
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
-  return <select className={formClass} {...rest} />;
+  return (
+    <select className={formClass} {...rest}>
+    { children }
+    </select>
+  );
 };
 
 const FormSearchSelect = props => {
@@ -69,7 +76,8 @@ const FormLabel = props => {
 
 const FormCheck = props => {
   const { validity, className, label, id, ...rest } = props;
-  const formClass = cx('form-group form-check', className);
+  const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
+  const formClass = cx('form-group', 'form-check', formValidity, className);
   return (
     <div className={formClass} {...rest}>
       <input type="checkbox" className="form-check-input" id={id} />
@@ -81,7 +89,7 @@ const FormCheck = props => {
 };
 
 const FormToggle = ({ id, onChange, className, ...rest }) => {
-  const toggleClass = cx('custom-control custom-checkbox-toggle', className);
+  const toggleClass = cx('custom-control', 'custom-checkbox-toggle', className);
   return (
     <div className={toggleClass} {...rest}>
       <input type="checkbox" className="custom-control-input" id={id} onChange={onChange} />
@@ -93,13 +101,16 @@ const FormToggle = ({ id, onChange, className, ...rest }) => {
 const FormDatepicker = props => {
   const { children, validity, className, placeholder, mode, ...rest } = props;
   const datepickerClass = cx('form-control', className);
+  // FIXME mode doesnt seem to be implemented
+  // FIXME children doesnt seem to be implemented
+  // FIXME validity doesnt seem to be implemented
   return (
     <input
       type="text"
       className={datepickerClass}
       placeholder={placeholder || 'Pick a date'}
       data-toggle="flatpickr"
-      data-flatpickr-mode={mode || null}
+      data-flatpickr-mode={mode || null} 
       {...rest}
     />
   );
