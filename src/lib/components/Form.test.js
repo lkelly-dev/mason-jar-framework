@@ -103,7 +103,6 @@ describe('FormInput', () => {
   it('has expected props', () => {
     const childComponent = <div>Child Component</div>;
     const component = shallow(<FormInput className={ cn } validity={ validity } what="ever"/>);
-    // TODO check to make sure passing in children throws an error
     const classNameArray = component.prop('className').split(' ');
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('form-control');
@@ -111,7 +110,6 @@ describe('FormInput', () => {
     expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('input');
     expect(classNameArray).toHaveLength(3);
-
   });
 
   it('doesnt allow invalid props', () => {
