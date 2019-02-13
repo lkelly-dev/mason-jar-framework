@@ -1,7 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Modal, ModalHeader, ModalTitle, ModalBody, ModalFooter, ModalClose, ModalTrigger } from './Modal';
-import { Button } from './Button';
+import {
+  Modal,
+  ModalHeader,
+  ModalTitle,
+  ModalBody,
+  ModalFooter,
+  ModalClose,
+  ModalTrigger,
+  Button
+} from '../index.js';
 
 // TODO discuss why there is inconsistency in use of the 'element' prop. id / data-trigger
 

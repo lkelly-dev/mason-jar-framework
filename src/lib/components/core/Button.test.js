@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Button, ButtonGroup } from "./Button";
+import { Button, ButtonGroup } from "../index.js";
 
 describe('Button', () => {
   it('matches snapshot', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import {Header, HeaderBody, HeaderPretitle, HeaderSubtitle, HeaderTitle } from "./Header";
+import { Header, HeaderBody, HeaderPretitle, HeaderSubtitle, HeaderTitle } from "../index.js";
 
 describe('Header', () => {
   it('Header matches snapshot', () => {

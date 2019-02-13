@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Progress } from "./Progress";
+import { Progress } from "../index.js";
 
 describe('Progress', () => {
   it('Progress matches snapshot', () => {

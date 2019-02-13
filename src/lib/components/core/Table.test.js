@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Table } from "./Table";
+import { Table } from "../index.js";
 
 describe('Table', () => {
   it('matches snapshot', () => {

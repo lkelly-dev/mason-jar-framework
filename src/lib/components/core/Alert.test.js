@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Alert, AlertLink, AlertHeading } from "./Alert";
+import { Alert, AlertLink, AlertHeading } from "../index.js";
 
 describe('Alert', () => {
   it('matches snapshot', () => {

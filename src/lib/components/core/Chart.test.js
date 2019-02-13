@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Chart, ChartCanvas } from "./Chart";
+import { Chart, ChartCanvas } from "../index.js";
 
 describe('Chart', () => {
   it('Chart matches snapshot', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { List, ListItem } from "./List";
+import { List, ListItem } from "../index.js";
 
 describe('List', () => {
   it('List matches snapshot', () => {

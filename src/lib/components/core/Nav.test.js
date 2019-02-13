@@ -1,6 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Nav, NavTab, NavItem, NavLink, NavDropdown } from './Nav';
+import {
+  Nav,
+  NavTab,
+  NavItem,
+  NavLink,
+  NavDropdown
+} from '../index.js';
 import { Dropdown } from './Dropdown';
 
 describe('Nav', () => {

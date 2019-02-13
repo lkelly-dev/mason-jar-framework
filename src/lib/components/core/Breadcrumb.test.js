@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Breadcrumb, BreadcrumbItem } from "./Breadcrumb";
+import { Breadcrumb, BreadcrumbItem } from "../index.js";
 
 describe('Breadcrumb', () => {
   it('Breadcrumb matches snapshot', () => {

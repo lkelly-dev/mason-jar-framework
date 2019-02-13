@@ -1,6 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Pagination, PaginationItem, PaginationLink } from "./Pagination";
+import {
+  Pagination,
+  PaginationItem,
+  PaginationLink
+} from "../index.js";
 
 describe('Pagination', () => {
   it('Pagination matches snapshot', () => {

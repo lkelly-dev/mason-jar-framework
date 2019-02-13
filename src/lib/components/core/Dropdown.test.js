@@ -8,7 +8,7 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownCard,
-} from "./Dropdown";
+} from "../index.js";
 
 describe('Dropdown', () => {
 

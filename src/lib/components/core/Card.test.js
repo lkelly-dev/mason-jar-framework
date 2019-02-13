@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Card, CardHeader, CardBody, CardText, CardTitle, CardDropdown, CardAvatar, CardTable } from "./Card";
+import { Card, CardHeader, CardBody, CardText, CardTitle, CardDropdown, CardAvatar, CardTable } from "../index.js";
 
 describe('Card', () => {
   it('matches snapshot', () => {

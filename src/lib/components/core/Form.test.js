@@ -14,7 +14,7 @@ import {
   FormToggle,
   FormCheck,
   FormSearchSelect,
-} from "./Form";
+} from "../index.js";
 
 describe('Form', () => {
 

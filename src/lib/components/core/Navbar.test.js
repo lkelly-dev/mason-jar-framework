@@ -1,7 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Navbar, NavbarNav, NavbarBrand, NavbarText, NavbarCollapse, NavbarToggle } from "./Navbar";
-import { Button } from './Button';
+import {
+  Navbar,
+  NavbarNav,
+  NavbarBrand,
+  NavbarText,
+  NavbarCollapse,
+  NavbarToggle,
+  Button
+} from "../index.js";
 
 describe('Navbar', () => {
   it('Navbar matches snapshot', () => {
