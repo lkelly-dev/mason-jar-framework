@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
 import Select from 'react-select';
 import {
   Form,
@@ -103,7 +103,7 @@ describe('FormInput', () => {
   it('has expected props', () => {
     const childComponent = <div>Child Component</div>;
     const component = shallow(
-      <FormInput className={ cn } validity={ validity } what="ever" />
+      <FormInput className={cn} validity={validity} what="ever"/>
     );
     // TODO check to make sure passing in children throws an error
     const classNameArray = component.prop('className').split(' ');
@@ -113,13 +113,30 @@ describe('FormInput', () => {
     expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('input');
     expect(classNameArray).toHaveLength(3);
+
   });
 
   it('doesnt allow invalid props', () => {
     const component = shallow(<FormInput validity={ badValidity } />)
     expect(component.prop('className').split(' ')).not.toContain(badValidity);
-  })
+  });
 
+  it('throws an error when given children', () => {
+    let hasErrorBeenThrown = false;
+
+    try {
+      render(
+        <FormInput>
+          <div>slkdjflkdj</div>
+        </FormInput>
+      );
+    } catch (e) {
+      console.log(e);
+      hasErrorBeenThrown = true;
+    }
+
+    expect(hasErrorBeenThrown).toBe(true);
+  });
 });
 
 describe('FormSelect', () => {
