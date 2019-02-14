@@ -29,11 +29,12 @@ const FormRow = props => {
 };
 
 const FormInput = props => {
-  const { validity, className, ...rest } = props;
+  const { validity, className, as, ...rest } = props;
   // TODO figure out how to test this error.
   if(typeof rest['children'] !== 'undefined') { throw new Error('input elements cannot contain children')}
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
+  const Component = as || 'input';
   return <input className={formClass} {...rest} />;
 };
 
