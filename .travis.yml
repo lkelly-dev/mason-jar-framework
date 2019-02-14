@@ -1,6 +1,15 @@
 language: node_js
+
 node_js:
   - "node"
+
+install:
+  - "npm install"
+
+script:
+  - "npm run test"
+  - "npm run build"
+
 deploy:
   provider: npm
   email: tyler@ronoco.com
@@ -9,4 +18,4 @@ deploy:
   on:
     tags: true
     repo: ronoco-ins/mason-jar-framework
-    branch: develop
+    all_branches: true
