@@ -65,7 +65,6 @@ describe('Navbar', () => {
         color={ badColor }
         expand={ badSize }
         fixed={ badFixed }
-        vertical={ badOrientation } >
       </Navbar>
     );
     const classNameArray = component.prop('className').split(' ');
@@ -73,7 +72,6 @@ describe('Navbar', () => {
     expect(classNameArray).not.toContain(`navbar-${badColor}`);
     expect(classNameArray).not.toContain(`navbar-expand-${badSize}`);
     expect(classNameArray).not.toContain(`fixed-${badFixed}`);
-    expect(classNameArray).not.toContain('navbar-vertical');
     expect(classNameArray).toHaveLength(1)
 
   })
