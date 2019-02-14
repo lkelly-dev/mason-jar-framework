@@ -35,7 +35,7 @@ const FormInput = props => {
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
   const Component = as || 'input';
-  return <input className={formClass} {...rest} />;
+  return <Component className={formClass} {...rest} />;
 };
 
 
