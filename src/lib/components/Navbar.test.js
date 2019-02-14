@@ -64,7 +64,7 @@ describe('Navbar', () => {
         what="ever"
         color={ badColor }
         expand={ badSize }
-        fixed={ badFixed }
+	fixed={ badFixed }>
       </Navbar>
     );
     const classNameArray = component.prop('className').split(' ');
