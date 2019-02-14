@@ -53,7 +53,9 @@ const FormSearchSelect = props => {
   const { validity, className, ...rest } = props;
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
-  return <Select className={formClass} {...rest} />;
+  return (
+    <Select className={formClass} {...rest} />
+  );
 };
 
 const FormTextarea = props => {

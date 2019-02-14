@@ -51,7 +51,7 @@ export {
   FormDatepicker,
   FormToggle,
   FormCheck,
-  FormSearchSelect,
+  FormSearchSelect
 } from './components/Form';
 export {
   Header,

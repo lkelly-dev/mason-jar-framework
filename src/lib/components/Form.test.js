@@ -182,8 +182,9 @@ describe('FormSearchSelect', () => {
   });
 
   it('has expected props', () => {
+    // mock options to test react-select
     const component = shallow(
-      <FormSearchSelect
+      <Form.SearchSelect
         className={ cn }
         validity={ validity }
         what="ever" />
@@ -195,6 +196,7 @@ describe('FormSearchSelect', () => {
     expect(classNameArray).toContain(cn);
     expect(component.type()).toBe(Select);
     expect(classNameArray).toHaveLength(3);
+    expect(component.type()).toBe(Select);
   });
 
   it('doesnt allow invalid props', () => {
