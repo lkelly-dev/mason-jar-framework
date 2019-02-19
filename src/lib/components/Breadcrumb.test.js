@@ -21,6 +21,12 @@ describe('Breadcrumb', () => {
     expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode:true});
+    const component = shallow(<Breadcrumb context={Context} what="ever"/>);
+    expect(component.prop('data-what')).toBe('ever');
+  });
 });
 
 describe('BreadcrumbItem', () => {
@@ -51,4 +57,10 @@ describe('BreadcrumbItem', () => {
     expect(classNameArray).not.toContain(badStatus);
     expect(classNameArray).toHaveLength(1);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode:true});
+    const component = shallow(<BreadcrumbItem context={Context} what="ever"/>);
+    expect(component.prop('data-what')).toBe('ever');
+  });
 });

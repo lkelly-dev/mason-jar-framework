@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { cx, css } from 'emotion';
 import MODIFIERS from './Modifiers';
+import { debugAttrs, debugMode } from '../utils/debugging';
 
 const ButtonOverride = css`
   -webkit-appearance: inherit !important;
@@ -9,7 +10,9 @@ const ButtonOverride = css`
 `;
 
 const Button = props => {
-  const { children, color, outline, size, status, shape, className, as, ...rest } = props;
+  const { context, children, color, outline, size, status, shape, className, as, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const buttonColor = MODIFIERS.COLOR[color] ? `btn-${color}` : null;
   const outlineColor = MODIFIERS.COLOR[outline] ? `btn-outline-${outline}` : null;
   const buttonSize = MODIFIERS.SIZE[size] ? `btn-${size}` : null;
@@ -27,7 +30,9 @@ const Button = props => {
     className,
   );
   return (
-    <Component type="button" className={buttonClass} {...rest}>
+    <Component type="button" className={buttonClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       {children}
     </Component>
   );
