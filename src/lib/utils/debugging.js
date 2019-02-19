@@ -1,7 +1,7 @@
 
 const createPropName = (oldProp) => {
   let newProp = oldProp.slice();
-  return newProp.replace(/\W+/g, '-').toLowerCase();
+  return newProp.replace(/\W+/g, '-');
 }
 
 const debugMode = (context) => (
