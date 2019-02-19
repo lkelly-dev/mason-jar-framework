@@ -110,7 +110,7 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "react-select": "^2.3.0"
+    "react-select": "^2.3.0",
     "react": "^16.2.0",
   }
 }
