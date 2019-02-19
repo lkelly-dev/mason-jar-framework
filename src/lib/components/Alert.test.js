@@ -30,6 +30,12 @@ describe('Alert', () => {
     const classNameArray = component.prop('className').split(' ');
     expect(classNameArray).not.toContain(`alert-${badColor}`);
   });
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode:true});
+    const children = <div>child</div>;
+    const component = shallow(<Alert context={Context} color={color} >{children}</Alert>);
+    expect(component.prop('data-color')).toBe(color);
+  });
 });
 
 describe('AlertLink', () => {

@@ -8,7 +8,6 @@ install:
 
 script:
   - "npm run test"
-  - "npm run build"
 
 deploy:
   provider: npm

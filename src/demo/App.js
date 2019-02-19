@@ -1,22 +1,12 @@
 import React from 'react';
-import { Form } from '../lib';
+import { Alert } from '../lib';
 
-const optionList = [
-  {
-    value: "1", name: "stuffer",
+let myContext = React.createContext({ debugMode: true });
 
-  },
-  {
-    value: "1", name: "non"
-  }
-];
-
-const App = () => <div color="primary">
-  <Form.SearchSelect
-    options={
-      optionList.map(item => ({ label: item.name, value: item.value }))
-    }
-  />
-</div>;
+const App = () => (
+  <div color="primary">
+    <Alert context={myContext} some-prop={{a:1, b:3}}><div>butt</div></Alert>
+  </div>
+)
 
 export default App;
