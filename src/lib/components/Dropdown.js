@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { cx } from 'emotion';
 import { Button } from './Button';
+import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Dropdown = props => {
-  const { children, className, ...rest } = props;
+  const { context, children, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const dropdownClass = cx('dropdown', className);
   return (
-    <div className={dropdownClass} {...rest}>
+    <div className={dropdownClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       {children}
     </div>
   );
 };
 
 const DropdownToggle = props => {
-  const { children, className, ...rest } = props;
+  const { context, children, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const dropdownToggleClass = cx('dropdown-toggle', className);
   return (
     <Button
@@ -22,6 +29,7 @@ const DropdownToggle = props => {
       data-toggle="dropdown"
       aria-haspopup="true"
       aria-expanded="false"
+      {...(debug) ? debugAttrs(props): null}
       {...rest}
     >
       {children}
@@ -30,7 +38,9 @@ const DropdownToggle = props => {
 };
 
 const DropdownFeatherToggle = props => {
-  const { className, ...rest } = props;
+  const { context, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const dropdownToggleClass = cx('dropdown-ellipses', 'dropdown-toggle', className);
   return (
     <Button
@@ -40,38 +50,50 @@ const DropdownFeatherToggle = props => {
       aria-haspopup="true"
       aria-expanded="false"
       style={{ border: 'none', cursor: 'pointer' }}
-      {...rest}
-    >
+      {...(debug) ? debugAttrs(props): null}
+      {...rest} >
       <i className="fe fe-more-vertical" />
     </Button>
   );
 };
 
 const DropdownMenu = props => {
-  const { children, className, ...rest } = props;
+  const { context, children, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const dropdownMenuClass = cx('dropdown-menu', className);
   return (
-    <div className={dropdownMenuClass} {...rest}>
+    <div className={dropdownMenuClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       {children}
     </div>
   );
 };
 
 const DropdownItem = props => {
-  const { children, className, ...rest } = props;
+  const { context, children, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const dropdownItemClass = cx('dropdown-item', className);
   return (
-    <div className={dropdownItemClass} {...rest}>
+    <div className={dropdownItemClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       {children}
     </div>
   );
 };
 
 const DropdownCard = props => {
-  const { children, className, ...rest } = props;
+  const { context, children, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const dropdownItemClass = cx('dropdown-menu', 'dropdown-menu-card', className);
   return (
-    <div className={dropdownItemClass} {...rest}>
+    <div className={dropdownItemClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       {children}
     </div>
   );

@@ -11,12 +11,8 @@ import {
   Button
 } from '../index.js';
 
-// TODO discuss why there is inconsistency in use of the 'element' prop. id / data-trigger
-
-
 describe('Modal', () => {
   it('matches snapshot', () => {
-    //FIXME Should element be required? also the name is not great. Maybe elementId or just use id...
     const component = shallow(<Modal elementId="div"></Modal>);
     expect(component).toMatchSnapshot();
   });
@@ -35,6 +31,27 @@ describe('Modal', () => {
     expect(component.prop('id')).toBe(id);
     expect(classNameArray).toHaveLength(1);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const id = "some-id";
+    const child = "text";
+    const component = shallow(
+      <Modal
+        context={ Context }
+        elementId={ id }
+        className={ cn }
+        what="ever">
+        { child }
+      </Modal>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-id')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-elementId')).toBe(id);
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('ModalTrigger', () => {
@@ -57,6 +74,29 @@ describe('ModalTrigger', () => {
     expect(component.prop('data-target')).toBe(`#${id}`);
     expect(component.type()).toBe(Button);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const id = "some-id";
+    const child = "text";
+    const component = shallow(
+      <ModalTrigger
+        context={ Context }
+        elementId={ id }
+        className={ cn }
+        what="ever">
+        { child }
+      </ModalTrigger>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    // make sure its not catching and modifying pre-defined data-attrs...
+    expect(component.prop('data-data-toggle')).not.toBeDefined(); 
+    expect(component.prop('data-id')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-elementId')).toBe(id);
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('Modal.Content', () => {
@@ -84,6 +124,23 @@ describe('Modal.Content', () => {
     expect(component.contains(children)).toEqual(true);
   });
 
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <Modal.Content
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </Modal.Content>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  });
+
 });
 
 describe('ModalHeader', () => {
@@ -108,6 +165,24 @@ describe('ModalHeader', () => {
     expect(component.type()).toBe('div')
     expect(component.contains(children)).toEqual(true);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <ModalHeader
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </ModalHeader>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
+
 });
 
 describe('ModalBody', () => {
@@ -132,6 +207,24 @@ describe('ModalBody', () => {
     expect(component.type()).toBe('div')
     expect(component.contains(children)).toEqual(true);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <ModalBody
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </ModalBody>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
+
 });
 
 describe('ModalFooter', () => {
@@ -155,6 +248,23 @@ describe('ModalFooter', () => {
     expect(component.prop('what')).toBe('ever');
     expect(component.type()).toBe('div')
     expect(component.contains(children)).toEqual(true);
+  })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <ModalFooter
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </ModalFooter>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
   })
 });
 
@@ -180,6 +290,23 @@ describe('ModalTitle', () => {
     expect(component.type()).toBe('h3')
     expect(component.contains(children)).toEqual(true);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <ModalTitle
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </ModalTitle>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('ModalClose', () => {
@@ -202,5 +329,22 @@ describe('ModalClose', () => {
     expect(component.prop('data-dismiss')).toBe('modal');
     expect(component.prop('aria-label')).toBe('Close');
     expect(component.type()).toBe('button')
+  })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <ModalClose
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </ModalClose>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
   })
 });

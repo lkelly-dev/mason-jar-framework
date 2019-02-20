@@ -24,4 +24,24 @@ describe('Image', () => {
     expect(component.prop('alt')).toBe(alt);
     expect(component.prop('what')).toBe('ever');
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const alt = "alt text";
+    const aria = "aria text";
+    const component = shallow(
+      <Image
+        context={ Context }
+        alt={ alt }
+        aria={ aria }
+        className={ cn }
+        what="ever">
+      </Image>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-alt')).toBe(alt);
+    expect(component.prop('data-aria')).toBe(aria);
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });

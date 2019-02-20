@@ -1,88 +1,132 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { cx } from 'emotion';
 import MODIFIERS from './Modifiers';
 import Select from 'react-select';
+import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Form = props => {
-  const { children } = props;
-  return <form {...props}>{children}</form>;
+  const { context, children, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
+  return (
+    <form
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
+      {children}
+    </form>
+  );
 };
 
 const FormGroup = props => {
-  const { children, className, ...rest } = props;
+  const { context, children, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const formGroupClass = cx('form-group', className);
   return (
-    <div className={formGroupClass} {...rest}>
+    <div className={formGroupClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       {children}
     </div>
   );
 };
 
 const FormRow = props => {
-  const { children, className, ...rest } = props;
+  const { context, children, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const formGroupClass = cx('form-row', className);
   return (
-    <div className={formGroupClass} {...rest}>
+    <div className={formGroupClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       {children}
     </div>
   );
 };
 
 const FormInput = props => {
-  const { validity, className, as, ...rest } = props;
-  // TODO figure out how to test this error.
+  const { context, validity, className, as, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   if(typeof rest['children'] !== 'undefined') { throw new Error('input elements cannot contain children')}
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
   const Component = as || 'input';
-  return <Component className={formClass} {...rest} />;
+  return (
+    <Component className={formClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest} />
+  );
 };
 
 
 const FormSelect = props => {
-  const { validity, className, children, ...rest } = props;
+  const { context, validity, className, children, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
   return (
-    <select className={formClass} {...rest}>
-    { children }
+    <select className={formClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
+      { children }
     </select>
   );
 };
 
 const FormSearchSelect = props => {
-  const { validity, className, ...rest } = props;
+  const { context, validity, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
   return (
-    <Select className={formClass} {...rest} />
+    <Select className={formClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest} />
   );
 };
 
 const FormTextarea = props => {
-  const { validity, className, ...rest } = props;
+  const { context, validity, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-control', formValidity, className);
-  return <textarea className={formClass} {...rest} />;
+  return (
+    <textarea className={formClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest} />
+  );
 };
 
 const FormLabel = props => {
-  const { children, validity, className, ...rest } = props;
+  const { context, children, validity, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-check-label', formValidity, className);
   return (
-    <label className={formClass} {...rest}>
+    <label className={formClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       {children}
     </label>
   );
 };
 
 const FormCheck = props => {
-  const { validity, className, label, id, ...rest } = props;
+  const { context, validity, className, label, id, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const formValidity = MODIFIERS.VALIDITY[validity] ? `${validity}` : null;
   const formClass = cx('form-group', 'form-check', formValidity, className);
   return (
-    <div className={formClass} {...rest}>
+    <div className={formClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       <input type="checkbox" className="form-check-input" id={id} />
       <label className="form-check-label" htmlFor={id}>
         {label}
@@ -91,10 +135,14 @@ const FormCheck = props => {
   );
 };
 
-const FormToggle = ({ id, onChange, className, ...rest }) => {
+const FormToggle = ({ context, id, onChange, className, ...rest }) => {
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const toggleClass = cx('custom-control', 'custom-checkbox-toggle', className);
   return (
-    <div className={toggleClass} {...rest}>
+    <div className={toggleClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       <input type="checkbox" className="custom-control-input" id={id} onChange={onChange} />
       <label className="custom-control-label" htmlFor={id} />
     </div>
@@ -102,7 +150,9 @@ const FormToggle = ({ id, onChange, className, ...rest }) => {
 };
 
 const FormDatepicker = props => {
-  const { children, validity, className, placeholder, mode, ...rest } = props;
+  const { context, children, validity, className, placeholder, mode, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const datepickerClass = cx('form-control', className);
   // FIXME mode doesnt seem to be implemented
   // FIXME children doesnt seem to be implemented
@@ -114,6 +164,7 @@ const FormDatepicker = props => {
       placeholder={placeholder || 'Pick a date'}
       data-toggle="flatpickr"
       data-flatpickr-mode={mode || null} 
+      {...(debug) ? debugAttrs(props): null}
       {...rest}
     />
   );

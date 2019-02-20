@@ -15,6 +15,7 @@ describe('Navbar', () => {
     const component = shallow(<Navbar></Navbar>);
     expect(component).toMatchSnapshot();
   })
+
   it('has expected basic props', () => {
     const children = <div> children </div>;
     const component = shallow(
@@ -31,6 +32,7 @@ describe('Navbar', () => {
     expect(component.prop('what')).toBe('ever');
     expect(component.type()).toBe('nav')
   })
+
   it('has expected complex props', () => {
     const cn = 'neato',
           expand = size,
@@ -58,6 +60,7 @@ describe('Navbar', () => {
     expect(component.prop('what')).toBe('ever');
     expect(component.type()).toBe('nav')
   });
+  
   it('excludes invalid props', () => {
     const component = shallow(
       <Navbar
@@ -75,6 +78,27 @@ describe('Navbar', () => {
     expect(classNameArray).toHaveLength(1)
 
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <Navbar
+        context={ Context }
+        color={ color }
+        expand={ size }
+        className={ cn }
+        what="ever">
+        { child }
+      </Navbar>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-color')).toBe(color);
+    expect(component.prop('data-expand')).toBe(size);
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('NavbarNav', () => {
@@ -82,6 +106,7 @@ describe('NavbarNav', () => {
     const component = shallow(<NavbarNav></NavbarNav>);
     expect(component).toMatchSnapshot();
   })
+
   it('has expected props', () => {
     const children = <div> children </div>;
     const component = shallow(
@@ -99,6 +124,23 @@ describe('NavbarNav', () => {
     expect(component.contains(children)).toEqual(true);
     expect(component.type()).toBe('nav');
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <NavbarNav
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </NavbarNav>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('NavbarBrand', () => {
@@ -123,6 +165,23 @@ describe('NavbarBrand', () => {
     expect(component.contains(children)).toEqual(true);
     expect(component.type()).toBe('a');
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <NavbarBrand
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </NavbarBrand>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('NavbarCollapse', () => {
@@ -130,6 +189,7 @@ describe('NavbarCollapse', () => {
     const component = shallow(<NavbarCollapse></NavbarCollapse>);
     expect(component).toMatchSnapshot();
   })
+
   it('has expected props', () => {
     const children = <div> children </div>;
     const component = shallow(
@@ -148,6 +208,23 @@ describe('NavbarCollapse', () => {
     expect(component.contains(children)).toEqual(true);
     expect(component.type()).toBe('div');
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <NavbarCollapse
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </NavbarCollapse>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('NavbarToggle', () => {
@@ -155,6 +232,7 @@ describe('NavbarToggle', () => {
     const component = shallow(<NavbarToggle></NavbarToggle>);
     expect(component).toMatchSnapshot();
   })
+
   it('has expected props', () => {
     const component = shallow(
       <NavbarToggle
@@ -169,6 +247,23 @@ describe('NavbarToggle', () => {
     expect(component.prop('what')).toBe('ever');
     expect(component.type()).toBe(Button);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <NavbarToggle
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </NavbarToggle>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('NavbarText', () => {
@@ -176,6 +271,7 @@ describe('NavbarText', () => {
     const component = shallow(<NavbarText></NavbarText>);
     expect(component).toMatchSnapshot();
   })
+
   it('has expected props', () => {
     const children = <div>children</div>
     const component = shallow(
@@ -193,4 +289,21 @@ describe('NavbarText', () => {
     expect(component.contains(children)).toEqual(true);
     expect(component.type()).toBe('span');
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <NavbarText
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </NavbarText>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });

@@ -23,4 +23,21 @@ describe('Table', () => {
     expect(component.prop('what')).toBe('ever');
     expect(component.contains(children)).toEqual(true);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <Table
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </Table>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });

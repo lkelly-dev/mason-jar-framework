@@ -53,6 +53,31 @@ describe('Button', () => {
     expect(classNameArray).not.toContain(badStatus);
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const child = <div> button label </div>
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <Button
+        context={ Context }
+        color={ color }
+        outline={ outline }
+        size={ size }
+        status={ status }
+        shape={ shape }
+        className={ cn }
+        what="ever">
+        { child }
+      </Button>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-color')).toBe(color);
+    expect(component.prop('data-outline')).toBe(outline);
+    expect(component.prop('data-size')).toBe(size);
+    expect(component.prop('data-status')).toBe(status);
+    expect(component.prop('data-shape')).toBe(shape);
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('ButtonGroup', () => {
@@ -88,5 +113,22 @@ describe('ButtonGroup', () => {
     expect(classNameArray).not.toContain(`btn-group-${badSize}`);
     expect(classNameArray).not.toContain(`btn-group-${badOrientation}`);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+    <ButtonGroup
+      context={ Context }
+      size={ size }
+      orientation={ orientation }
+      className={ cn }
+      what="ever">
+    </ButtonGroup>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-size')).toBe(size);
+    expect(component.prop('data-orientation')).toBe(orientation);
+    expect(component.prop('data-className')).toBe(cn);
+  });
 });
 

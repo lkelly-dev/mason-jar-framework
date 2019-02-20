@@ -19,6 +19,23 @@ describe('List', () => {
     expect(classNameArray).toContain('list-group');
     expect(classNameArray).toContain(cn);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <List
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </List>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('ListItem', () => {
@@ -38,4 +55,21 @@ describe('ListItem', () => {
     expect(classNameArray).toContain('list-group-item');
     expect(classNameArray).toContain(cn);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <ListItem
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </ListItem>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });

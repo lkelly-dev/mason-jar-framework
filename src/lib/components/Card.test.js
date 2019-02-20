@@ -24,6 +24,19 @@ describe('Card', () => {
     expect(classNameArray).toHaveLength(2);
     expect(component.prop('what')).toBe('ever');
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <Card
+        context={ Context }
+        className={ cn }
+        what="ever">
+      </Card>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('CardTitle', () => {
@@ -48,6 +61,19 @@ describe('CardTitle', () => {
     expect(classNameArray).toContain(cn);
     expect(component.prop('what')).toBe('ever');
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <CardTitle
+        context={ Context }
+        className={ cn }
+        what="ever">
+      </CardTitle>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('CardHeader', () => {
@@ -72,6 +98,19 @@ describe('CardHeader', () => {
     expect(classNameArray).toContain('card-header')
     expect(classNameArray).toContain(cn)
     expect(classNameArray).toHaveLength(2);
+  })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <CardHeader
+        context={ Context }
+        className={ cn }
+        what="ever">
+      </CardHeader>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
   })
 });
 
@@ -98,6 +137,20 @@ describe('CardBody', () => {
     expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <CardBody
+        context={ Context }
+        className={ cn }
+        what="ever">
+      </CardBody>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
+
 });
 
 describe('CardText', () => {
@@ -123,6 +176,19 @@ describe('CardText', () => {
     expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <CardText
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </CardText>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('CardDropdown', () => {
@@ -149,6 +215,19 @@ describe('CardDropdown', () => {
     expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(3);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <CardDropdown
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </CardDropdown>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('CardAvatar', () => {
@@ -175,6 +254,19 @@ describe('CardAvatar', () => {
     expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(3);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <CardAvatar
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </CardAvatar>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('CardTable', () => {
@@ -200,4 +292,17 @@ describe('CardTable', () => {
     expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <CardTable
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </CardTable>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });

@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { cx } from 'emotion';
+import { debugAttrs, debugMode } from '../utils/debugging';
 // import { Button } from './Button';
 // import MODIFIERS from './Modifiers';
 
 const Table = props => {
-  const { children, className, ...rest } = props;
+  const { context, children, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const tableClass = cx('table', className);
   return (
-    <table className={tableClass} {...rest}>
+    <table className={tableClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       {children}
     </table>
   );

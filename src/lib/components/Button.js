@@ -39,12 +39,16 @@ const Button = props => {
 };
 
 const ButtonGroup = props => {
-  const { children, size, orientation, className, ...rest } = props;
+  const { context, children, size, orientation, className, ...rest } = props;
+  const c =  (context) ? useContext(context) : null;
+  const debug = debugMode(c)
   const buttonGroupSize = MODIFIERS.SIZE[size] ? `btn-group-${size}` : null;
   const buttonGroupOrientation = MODIFIERS.ORIENTATION[orientation] ? `btn-group-${orientation}` : null;
   const buttonGroupClass = cx('btn-group', buttonGroupSize, buttonGroupOrientation, className);
   return (
-    <div className={buttonGroupClass} {...rest}>
+    <div className={buttonGroupClass}
+      {...(debug) ? debugAttrs(props): null}
+      {...rest}>
       {children}
     </div>
   );
