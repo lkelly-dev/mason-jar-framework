@@ -135,7 +135,8 @@ const FormCheck = props => {
   );
 };
 
-const FormToggle = ({ context, id, onChange, className, ...rest }) => {
+const FormToggle = props => {
+  const { context, id, onChange, className, ...rest } = props
   const c =  (context) ? useContext(context) : null;
   const debug = debugMode(c)
   const toggleClass = cx('custom-control', 'custom-checkbox-toggle', className);
