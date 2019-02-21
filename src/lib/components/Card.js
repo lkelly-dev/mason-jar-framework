@@ -4,12 +4,11 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Card = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const cardClass = cx('card', className);
   return (
     <div className={cardClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -18,13 +17,12 @@ const Card = props => {
 
 const CardTitle = props => {
   const { context, children, className, as, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const cardTitleClass = cx('card-title', 'mb-0', className);
   const Component = as || 'h2';
   return (
     <Component className={cardTitleClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </Component>
@@ -33,12 +31,11 @@ const CardTitle = props => {
 
 const CardHeader = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const headerClass = cx('card-header', className);
   return (
     <div className={headerClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -47,12 +44,11 @@ const CardHeader = props => {
 
 const CardBody = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const cardBodyClass = cx('card-body', className);
   return (
     <div className={cardBodyClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -61,12 +57,11 @@ const CardBody = props => {
 
 const CardText = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const cardTextClass = cx('card-text', className);
   return (
     <span className={cardTextClass} 
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </span>
@@ -75,12 +70,11 @@ const CardText = props => {
 
 const CardDropdown = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const cardDropdownClass = cx('dropdown', 'card-dropdown', className);
   return (
     <div className={cardDropdownClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -89,12 +83,11 @@ const CardDropdown = props => {
 
 const CardAvatar = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const cardAvatarClass = cx('card-avatar', 'avatar', className);
   return (
     <div className={cardAvatarClass} 
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -103,12 +96,11 @@ const CardAvatar = props => {
 
 const CardTable = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const cardTableClass = cx('card-table', className);
   return (
     <table className={cardTableClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </table>

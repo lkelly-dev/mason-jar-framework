@@ -6,11 +6,10 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Modal = props => {
   const { context, elementId, children, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   return (
     <div className="modal" tabIndex="-1" role="dialog" aria-hidden="true" id={elementId}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       <div className="modal-dialog" role="document">
         {children}
@@ -21,11 +20,10 @@ const Modal = props => {
 
 const ModalTrigger = props => {
   const { context, children, elementId, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c);
+  const debug = debugMode(context);
   return (
     <Button data-toggle="modal" data-target={`#${elementId}`}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </Button>
@@ -34,12 +32,11 @@ const ModalTrigger = props => {
 
 const ModalContent = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c);
+  const debug = debugMode(context);
   const modalContentClass = cx('modal-content', className);
   return (
     <div className={modalContentClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -48,12 +45,11 @@ const ModalContent = props => {
 
 const ModalHeader = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c);
+  const debug = debugMode(context);
   const modalHeaderClass = cx('modal-header', className);
   return (
     <div className={modalHeaderClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -62,12 +58,11 @@ const ModalHeader = props => {
 
 const ModalBody = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c);
+  const debug = debugMode(context);
   const modalBodyClass = cx('modal-body', className);
   return (
     <div className={modalBodyClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -76,12 +71,11 @@ const ModalBody = props => {
 
 const ModalFooter = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c);
+  const debug = debugMode(context);
   const modalFooterClass = cx('modal-footer', className);
   return (
     <div className={modalFooterClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -90,12 +84,11 @@ const ModalFooter = props => {
 
 const ModalTitle = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c);
+  const debug = debugMode(context);
   const modalTitleClass = cx('modal-title', className);
   return (
     <h3 className={modalTitleClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </h3>
@@ -104,8 +97,7 @@ const ModalTitle = props => {
 
 const ModalClose = props => {
   const { context, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c);
+  const debug = debugMode(context);
   const modalCloseClass = cx('close', className);
   return (
     <button
@@ -113,7 +105,7 @@ const ModalClose = props => {
       className={modalCloseClass}
       data-dismiss="modal"
       aria-label="Close"
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}
     >
       <span aria-hidden="true">&times;</span>

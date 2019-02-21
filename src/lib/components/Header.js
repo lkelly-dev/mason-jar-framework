@@ -4,12 +4,11 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Header = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const headerClass = cx('header', className);
   return (
     <div className={headerClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -18,12 +17,11 @@ const Header = props => {
 
 const HeaderBody = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const headerBodyClass = cx('header-body', className);
   return (
     <div className={headerBodyClass}
-         {...(debug) ? debugAttrs(props): null}
+         {...(debug && debugAttrs(props)) }
          {...rest}>
       {children}
     </div>
@@ -32,13 +30,12 @@ const HeaderBody = props => {
 
 const HeaderPretitle = props => {
   const { context, children, className, as, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const headerTitleClass = cx('header-pretitle', className);
   const Component = as || 'h6';
   return (
     <Component className={headerTitleClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </Component>
@@ -47,13 +44,12 @@ const HeaderPretitle = props => {
 
 const HeaderSubtitle = props => {
   const { context, children, className, as, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const headerTitleClass = cx('header-subtitle', className);
   const Component = as || 'h6';
   return (
     <Component className={headerTitleClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </Component>
@@ -62,13 +58,12 @@ const HeaderSubtitle = props => {
 
 const HeaderTitle = props => {
   const { context, children, className, as, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const headerTitleClass = cx('header-title', className);
   const Component = as || 'h1';
   return (
     <Component className={headerTitleClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </Component>

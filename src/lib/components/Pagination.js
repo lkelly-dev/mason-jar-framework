@@ -4,12 +4,11 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Pagination = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const paginationClass = cx('card', className);
   return (
     <ul className={paginationClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </ul>
@@ -18,12 +17,11 @@ const Pagination = props => {
 
 const PaginationItem = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const paginationClass = cx('card', className);
   return (
     <li className={paginationClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </li>
@@ -32,13 +30,12 @@ const PaginationItem = props => {
 
 const PaginationLink = props => {
   const { context, children, className, as, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const paginationClass = cx('page-link', className);
   const Component = as || 'a';
   return (
     <Component className={paginationClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </Component>

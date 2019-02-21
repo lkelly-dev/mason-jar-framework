@@ -5,12 +5,11 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Breadcrumb = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const breadcrumbClass = cx('breadcrumb', className);
   return (
     <div className={breadcrumbClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -19,13 +18,12 @@ const Breadcrumb = props => {
 
 const BreadcrumbItem = props => {
   const { context, children, status, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const breadcrumbStatus = MODIFIERS.BREADCRUMB[status] ? `${status}` : null;
   const breadcrumbClass = cx('breadcrumb-item', breadcrumbStatus, className);
   return (
     <div className={breadcrumbClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>

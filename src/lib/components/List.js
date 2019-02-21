@@ -4,12 +4,11 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const List = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const listClass = cx('list-group', className);
   return (
     <div className={listClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -18,12 +17,11 @@ const List = props => {
 
 const ListItem = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const listClass = cx('list-group-item', className);
   return (
     <div className={listClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>

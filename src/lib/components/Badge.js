@@ -5,13 +5,12 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Badge = props => {
   const { context, children, color, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const badgeColor = MODIFIERS.COLOR[color] ? `badge-${color}` : null;
   const badgeClass = cx('badge', badgeColor, className);
   return (
     <span className={badgeClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </span>

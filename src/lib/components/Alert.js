@@ -14,15 +14,14 @@ const Alert = function (props) {
 
     const debug = getDebug(context)
    */
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const alertColor = MODIFIERS.COLOR[color] ? `alert-${color}` : null;
   const alertClass = cx('alert', alertColor, className);
   return (
     <div role="alert" className={alertClass}
          // FIXME: expression can be simplified
          //{...(debug && debugAttrs(props))}
-         {...(debug) ? debugAttrs(props): null}
+         {...(debug && debugAttrs(props)) }
     >
       {children}
     </div>
@@ -31,12 +30,11 @@ const Alert = function (props) {
 
 const AlertLink = props => {
   const { children, className, context, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const alertLinkClass = cx('alert-link', className);
   return (
     <a className={alertLinkClass}
-       {...(debug) ? debugAttrs(props): null}
+       {...(debug && debugAttrs(props)) }
        {...rest}
     >
       {children}
@@ -46,12 +44,11 @@ const AlertLink = props => {
 
 const AlertHeading = props => {
   const { children, className, context, ...restProps } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const alertHeadingClass = cx('alert-heading', className);
   return (
     <h4 className={alertHeadingClass}
-        {...(debug) ? debugAttrs(props): null}
+        {...(debug && debugAttrs(props)) }
         {...restProps}>
       {children}
     </h4>

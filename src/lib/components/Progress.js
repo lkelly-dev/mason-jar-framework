@@ -6,13 +6,12 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Progress = props => {
   const { context, children, className, currentValue, min, max, size, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const progressSize = MODIFIERS.SIZE[size] ? `progress-${size}` : null;
   const progressClass = cx('progress', progressSize, className);
   return (
     <div className={progressClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       <div
         style={{ width: `${currentValue}%` }}

@@ -4,12 +4,11 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Chart = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const chartClass = cx('chart', className);
   return (
     <div className={chartClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -18,12 +17,11 @@ const Chart = props => {
 
 const ChartCanvas = props => {
   const { context, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const chartClass = cx('chart-canvas', className);
   return (
     <canvas className={chartClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest} />
   );
 };

@@ -6,8 +6,7 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Navbar = props => {
   const { context, children, expand, color, fixed, vertical, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const navbarColor = MODIFIERS.COLOR[color] ? `navbar-${color}` : null;
   const expandSize = MODIFIERS.SIZE[expand] ? `navbar-expand-${expand}` : null;
   const navbarFixed = MODIFIERS.FIXED[fixed] ? `fixed-${fixed}` : null;
@@ -15,7 +14,7 @@ const Navbar = props => {
   const navbarClass = cx('navbar', navbarColor, expandSize, navbarFixed, navbarVertical, className);
   return (
     <nav className={navbarClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </nav>
@@ -24,12 +23,11 @@ const Navbar = props => {
 
 const NavbarNav = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const navbarClass = cx('navbar-nav', className);
   return (
     <nav className={navbarClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </nav>
@@ -38,12 +36,11 @@ const NavbarNav = props => {
 
 const NavbarBrand = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const navBrandClass = cx('navbar-brand', className);
   return (
     <a className={navBrandClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </a>
@@ -52,12 +49,11 @@ const NavbarBrand = props => {
 
 const NavbarCollapse = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const navbarCollapseClass = cx('collapse', 'navbar-collapse', className);
   return (
     <div className={navbarCollapseClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </div>
@@ -67,11 +63,10 @@ const NavbarCollapse = props => {
 const NavbarToggle = props => {
   const { context, className, ...rest } = props;
   const togglerClass = cx('navbar-toggler', className);
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   return (
     <Button className={togglerClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       <span className="navbar-toggler-icon" />
     </Button>
@@ -80,12 +75,11 @@ const NavbarToggle = props => {
 
 const NavbarText = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const navbarClass = cx('navbar-text', className);
   return (
     <span className={navbarClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </span>

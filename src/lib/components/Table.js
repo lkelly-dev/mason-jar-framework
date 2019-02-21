@@ -6,12 +6,11 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Table = props => {
   const { context, children, className, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   const tableClass = cx('table', className);
   return (
     <table className={tableClass}
-      {...(debug) ? debugAttrs(props): null}
+      {...(debug && debugAttrs(props)) }
       {...rest}>
       {children}
     </table>

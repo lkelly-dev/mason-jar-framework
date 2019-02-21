@@ -3,11 +3,10 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Image = props => {
   const { context, className, alt, aria, ...rest } = props;
-  const c =  (context) ? useContext(context) : null;
-  const debug = debugMode(c)
+  const debug = debugMode(context)
   return (
     <img className={className}
-         {...(debug) ? debugAttrs(props): null}
+         {...(debug && debugAttrs(props)) }
          {...rest} alt={alt} aria-label={aria} />
   );
 };
