@@ -5,22 +5,11 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Alert = function (props) {
   const { children, color, className, context } = props;
-  //FIXME: Expression can be simplified with binary operator
-  //FIXME: create function that encapsulates logic and use it where we need debug
-  /*
-    const getDebug = context => {
-      put logic here
-    }
-
-    const debug = getDebug(context)
-   */
   const debug = debugMode(context)
   const alertColor = MODIFIERS.COLOR[color] ? `alert-${color}` : null;
   const alertClass = cx('alert', alertColor, className);
   return (
     <div role="alert" className={alertClass}
-         // FIXME: expression can be simplified
-         //{...(debug && debugAttrs(props))}
          {...(debug && debugAttrs(props)) }
     >
       {children}
