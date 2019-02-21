@@ -8,7 +8,7 @@ const App = () => (
   <div color="primary">
     <Alert context={myContext}
            some-prop={{a:1, b:3}}>
-      <div>butt</div>
+      <div>Alert!</div>
     </Alert>
   </div>
 )
