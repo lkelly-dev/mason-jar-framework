@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Image = props => {

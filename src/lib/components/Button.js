@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { cx, css } from 'emotion';
 import MODIFIERS from './Modifiers';
 import { debugAttrs, debugMode } from '../utils/debugging';

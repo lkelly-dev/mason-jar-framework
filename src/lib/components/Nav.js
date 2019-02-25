@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { css, cx } from 'emotion';
 import { Dropdown } from './Dropdown';
 import MODIFIERS from './Modifiers';
