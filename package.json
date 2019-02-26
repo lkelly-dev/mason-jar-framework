@@ -1,6 +1,6 @@
 {
   "name": "mason-jar-framework",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A React component library for Bootstrap themes",
   "main": "build/index.js",
   "scripts": {
