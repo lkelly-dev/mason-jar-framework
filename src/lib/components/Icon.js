@@ -15,4 +15,25 @@ const Icon = props => {
   );
 };
 
+/*
+const Icon2 = props => {
+  const { context, children, name, className, as, ...rest } = props;
+  // propsconst debug = debugMode(context)
+  const iconName = `fe fe-${name}`;
+  const iconClass = cx(iconName, className);
+  const Component = as || 'span';
+  return (
+    <context.Consumer>
+    {
+      contextValue => (
+        <Component className={iconClass}
+                  {...(contextValue['debugMode'] && debugAttrs(props)) }
+                  {...rest} />
+      )
+    }
+    </context.Consumer>
+  );
+}
+*/
+
 export { Icon };
