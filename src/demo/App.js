@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from '../lib';
 // import { debugMode, debugAttrs } from '../lib/utils/debugging.js';
 
-let myContext = React.createContext({ debugMode: true });
+let myContext = React.createContext(false);
 
 const App = () => (
   <div color="primary">
