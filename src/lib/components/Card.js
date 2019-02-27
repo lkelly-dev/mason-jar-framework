@@ -4,8 +4,8 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Card = props => {
   const { context, children, className, ...rest } = props;
-  console.log('card props: ', props)
-  var c = (context !== null) ? useContext(context): null;
+  console.log('card context: ', context)
+  var c = (context) ? useContext(context): null;
   console.log('context: ', context)
   console.log('c: ', c)
   const debug = (c && c['debugMode'])
