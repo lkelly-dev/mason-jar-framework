@@ -22,7 +22,7 @@ const Card = props => {
 
 const CardTitle = props => {
   const { context, children, className, as, ...rest } = props;
-  var c = (context !== null) ? useContext(context): null;
+  var c = (context) ? useContext(context): null;
   const debug = (c && c['debugMode'])
   const cardTitleClass = cx('card-title', 'mb-0', className);
   const Component = as || 'h2';
