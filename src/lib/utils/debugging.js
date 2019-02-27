@@ -3,8 +3,6 @@ import { useContext } from 'react';
 const createPropName = oldProp => oldProp.slice().replace(/\W+/g, '-');
 
 const debugMode = (context) => {
-  console.log('mason-jar debugMode context: ', context);
-
   var c = (context) ? useContext(context): null;
 
   return (c && c['debugMode']);
