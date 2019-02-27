@@ -26,4 +26,19 @@ describe('Icon', () => {
     const component = shallow(<Icon as={ elType }/>);
     expect(component.type()).toBe(elType)
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <Icon
+        context={ Context }
+        name={ cn }
+        className={ cn }
+        what="ever">
+      </Icon>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-name')).toBe(cn);
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });

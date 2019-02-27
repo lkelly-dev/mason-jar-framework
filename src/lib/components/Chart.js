@@ -1,20 +1,29 @@
 import React from 'react';
 import { cx } from 'emotion';
+import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Chart = props => {
-  const { children, className, ...rest } = props;
+  const { context, children, className, ...rest } = props;
+  const debug = debugMode(context)
   const chartClass = cx('chart', className);
   return (
-    <div className={chartClass} {...rest}>
+    <div className={chartClass}
+      {...(debug && debugAttrs(props)) }
+      {...rest}>
       {children}
     </div>
   );
 };
 
 const ChartCanvas = props => {
-  const { className, ...rest } = props;
+  const { context, className, ...rest } = props;
+  const debug = debugMode(context)
   const chartClass = cx('chart-canvas', className);
-  return <canvas className={chartClass} {...rest} />;
+  return (
+    <canvas className={chartClass}
+      {...(debug && debugAttrs(props)) }
+      {...rest} />
+  );
 };
 
 Chart.Canvas = ChartCanvas;

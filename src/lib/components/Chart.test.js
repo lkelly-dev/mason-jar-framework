@@ -10,7 +10,6 @@ describe('Chart', () => {
 
   it('has expected props', () => {
     const child = <div>Child </div>;
-
     const component = shallow(
       <Chart
         className={ cn }
@@ -25,6 +24,19 @@ describe('Chart', () => {
     expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <Chart
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </Chart>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('ChartCanvas', () => {
@@ -50,4 +62,16 @@ describe('ChartCanvas', () => {
     expect(classNameArray).toContain(cn);
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <ChartCanvas
+      context={ Context }
+      className={ cn }
+      what="ever" />
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });

@@ -1,1 +1,20 @@
- - "node"
+language: node_js
+
+node_js:
+  - "node"
+
+install:
+  - "npm install"
+
+script:
+  - "npm run test"
+
+deploy:
+  provider: npm
+  email: tyler@ronoco.com
+  api_key:
+    secure: jdbzp8uYy5qKWs8uTHWiyeNYlnBFy4/gYJZpoxV3WxxT1NKoFhZieMAcb87woNAKaodCIwZ82/CTPfYolatY1MXfeXSdbyj5AfkSTGooEG5Konav8p6V1lQAXnbgNo5D+J7+dCR96NcFr7asz20pqCaoVuxEbGZduITx0DiViDeWyTUZsYTmPmAA/FA7JzngO3giEPgaahTTCgomsyynK3sTKsm8SOJuu1/EnJ+lbZH441Fq7gIoSBJ1FYT/UiOxcCsTmtC67aKr+P5NtPGVttd1moFeExUUracVvzVLHpWvbw6o0Fzdnjh1thsRajz3DXMi/p+HUUTwh3SXn9aPYhlTjVQyn/ysZSRTRb2Eokbrgo1mKDT3gHpjajK3BE0xigu2tITQ/ttxGwKu91V4VJggWcI+JueEN1pBk45D29SgMHNSD70KmAW/kR7GdvGZXl53DRvYPaZXbvhKlpRi0dNkWXVooaHjH/ERZ9LF2YTvPAAWzj5NVvumnb+M8xEbGAdc9cVINemrIkK2pK1qqri5aGgImg/I2e648xcghnONNdwbWICsrboKrbyrwZ6Xtk+WNRBnn6HpLjKAt3IcvKNvXy+Nbo6XLio4znHfKhSE/EHjfxRKJEuMhILl7CB3jhuCEMyRzt1nITISVkpJOq0ifwtTvydK+E/vy1Oa4tM=
+  on:
+    tags: true
+    repo: ronoco-ins/mason-jar-framework
+    all_branches: true

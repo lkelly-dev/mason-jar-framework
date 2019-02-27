@@ -49,6 +49,12 @@ describe('Avatar', () => {
     expect(classNameArray).not.toContain(`avatar-${status}`);
     expect(classNameArray).toHaveLength(1)
   });
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode:true});
+    const component = shallow(<Avatar context={Context} size={size} status={status}/>);
+    expect(component.prop('data-size')).toBe(size);
+    expect(component.prop('data-status')).toBe(status);
+  });
 });
 
 describe('AvatarImage', () => {
@@ -74,6 +80,12 @@ describe('AvatarImage', () => {
     const classNameArray = component.prop('className').split(' ');
     expect(classNameArray).not.toContain(badShape);
     expect(classNameArray).toHaveLength(1)
+  });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode:true});
+    const component = shallow(<AvatarImage context={Context} shape={shape}/>);
+    expect(component.prop('data-shape')).toBe(shape);
   });
 });
 
@@ -108,5 +120,11 @@ describe('AvatarTitle', () => {
     const classNameArray = component.prop('className').split(' ');
     expect(classNameArray).not.toContain(badShape);
     expect(classNameArray).toHaveLength(1)
+  });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode:true});
+    const component = shallow(<AvatarTitle context={Context} shape={shape}/>);
+    expect(component.prop('data-shape')).toBe(shape);
   });
 });

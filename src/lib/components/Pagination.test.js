@@ -27,6 +27,23 @@ describe('Pagination', () => {
     expect(component.prop('what')).toBe('ever');
     expect(component.contains(children)).toEqual(true);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <Pagination
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </Pagination>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('PaginationItem', () => {
@@ -50,6 +67,23 @@ describe('PaginationItem', () => {
     expect(component.prop('what')).toBe('ever');
     expect(component.contains(children)).toEqual(true);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <PaginationItem
+        context={ Context }
+        className={ cn }
+        what="ever">
+        { child }
+      </PaginationItem>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('PaginationLink', () => {
@@ -57,6 +91,7 @@ describe('PaginationLink', () => {
     const component = shallow(<PaginationLink></PaginationLink>);
     expect(component).toMatchSnapshot();
   });
+
   it('has expected props', () => {
     const children = <div>children</div>
     const component = shallow(
@@ -77,5 +112,24 @@ describe('PaginationLink', () => {
   it('overrides element type', () => {
     const component = shallow(<PaginationLink as='i'></PaginationLink>);
     expect(component.type()).toBe('i');
+  })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const child = "text";
+    const component = shallow(
+      <PaginationLink
+        context={ Context }
+        className={ cn }
+        as="i"
+        what="ever">
+        { child }
+      </PaginationLink>
+    );
+    expect(component.prop('data-context')).not.toBeDefined();
+    expect(component.prop('data-children')).not.toBeDefined();
+    expect(component.prop('data-as')).toBe('i');
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
   })
 });

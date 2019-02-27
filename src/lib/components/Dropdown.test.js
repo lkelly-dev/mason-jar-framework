@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { shallow } from 'enzyme';
 import { Button } from './Button';
 import {
@@ -11,7 +11,6 @@ import {
 } from "../index.js";
 
 describe('Dropdown', () => {
-
   it('Dropdown matches snapshot', () => {
     const component = shallow(<Dropdown></Dropdown>);
     expect(component).toMatchSnapshot();
@@ -34,6 +33,19 @@ describe('Dropdown', () => {
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <Dropdown
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </Dropdown>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('DropdownToggle', () => {
@@ -64,6 +76,19 @@ describe('DropdownToggle', () => {
     expect(component.type()).toBe(Button);
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <DropdownToggle
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </DropdownToggle>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('DropdownFeatherToggle', () => {
@@ -92,6 +117,19 @@ describe('DropdownFeatherToggle', () => {
     expect(component.type()).toBe(Button);
     expect(classNameArray).toHaveLength(3);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <DropdownFeatherToggle
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </DropdownFeatherToggle>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('DropdownMenu', () => {
@@ -118,6 +156,19 @@ describe('DropdownMenu', () => {
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <DropdownMenu
+        context={ Context }
+        className={ cn }
+        what="ever">
+      </DropdownMenu>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('DropdownItem', () => {
@@ -131,7 +182,7 @@ describe('DropdownItem', () => {
     const child = <div>Child Component</div>;
     const component = shallow(
       <DropdownItem
-        className="nifty"
+        className={ cn }
         what="ever" >
         { child }
       </DropdownItem>
@@ -140,10 +191,23 @@ describe('DropdownItem', () => {
     expect(component.contains(child)).toEqual(true);
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('dropdown-item');
-    expect(classNameArray).toContain('nifty');
+    expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <DropdownItem
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </DropdownItem>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('DropdownCard', () => {
@@ -171,4 +235,17 @@ describe('DropdownCard', () => {
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(3);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <DropdownCard
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </DropdownCard>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });

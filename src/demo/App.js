@@ -1,22 +1,16 @@
 import React from 'react';
-import { Form } from '../lib';
+import { Icon } from '../lib';
+// import { debugMode, debugAttrs } from '../lib/utils/debugging.js';
 
-const optionList = [
-  {
-    value: "1", name: "stuffer",
+let myContext = React.createContext(false);
 
-  },
-  {
-    value: "1", name: "non"
-  }
-];
-
-const App = () => <div color="primary">
-  <Form.SearchSelect
-    options={
-      optionList.map(item => ({ label: item.name, value: item.value }))
-    }
-  />
-</div>;
+const App = () => (
+  <div color="primary">
+    <Icon context={myContext}
+           some-prop={{a:1, b:3}}>
+      <div>Alert!</div>
+    </Icon>
+  </div>
+)
 
 export default App;

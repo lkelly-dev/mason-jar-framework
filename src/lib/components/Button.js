@@ -1,6 +1,7 @@
 import React from 'react';
 import { cx, css } from 'emotion';
 import MODIFIERS from './Modifiers';
+import { debugAttrs, debugMode } from '../utils/debugging';
 
 const ButtonOverride = css`
   -webkit-appearance: inherit !important;
@@ -9,7 +10,8 @@ const ButtonOverride = css`
 `;
 
 const Button = props => {
-  const { children, color, outline, size, status, shape, className, as, ...rest } = props;
+  const { context, children, color, outline, size, status, shape, className, as, ...rest } = props;
+  const debug = debugMode(context)
   const buttonColor = MODIFIERS.COLOR[color] ? `btn-${color}` : null;
   const outlineColor = MODIFIERS.COLOR[outline] ? `btn-outline-${outline}` : null;
   const buttonSize = MODIFIERS.SIZE[size] ? `btn-${size}` : null;
@@ -27,19 +29,24 @@ const Button = props => {
     className,
   );
   return (
-    <Component type="button" className={buttonClass} {...rest}>
+    <Component type="button" className={buttonClass}
+      {...(debug && debugAttrs(props)) }
+      {...rest}>
       {children}
     </Component>
   );
 };
 
 const ButtonGroup = props => {
-  const { children, size, orientation, className, ...rest } = props;
+  const { context, children, size, orientation, className, ...rest } = props;
+  const debug = debugMode(context);
   const buttonGroupSize = MODIFIERS.SIZE[size] ? `btn-group-${size}` : null;
   const buttonGroupOrientation = MODIFIERS.ORIENTATION[orientation] ? `btn-group-${orientation}` : null;
   const buttonGroupClass = cx('btn-group', buttonGroupSize, buttonGroupOrientation, className);
   return (
-    <div className={buttonGroupClass} {...rest}>
+    <div className={buttonGroupClass}
+      {...(debug && debugAttrs(props)) }
+      {...rest}>
       {children}
     </div>
   );

@@ -33,4 +33,10 @@ describe('Badge', () => {
     expect(classNameArray).not.toContain(`badge-${badColor}`);
     expect(classNameArray).toHaveLength(1)
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode:true});
+    const component = shallow(<Badge context={Context} color={color}/>);
+    expect(component.prop('data-color')).toBe(color);
+  });
 });

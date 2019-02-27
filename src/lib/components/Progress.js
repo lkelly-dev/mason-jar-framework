@@ -2,13 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { cx } from 'emotion';
 import MODIFIERS from './Modifiers';
+import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Progress = props => {
-  const { children, className, currentValue, min, max, size, ...rest } = props;
+  const { context, children, className, currentValue, min, max, size, ...rest } = props;
+  const debug = debugMode(context)
   const progressSize = MODIFIERS.SIZE[size] ? `progress-${size}` : null;
   const progressClass = cx('progress', progressSize, className);
   return (
-    <div className={progressClass} {...rest}>
+    <div className={progressClass}
+      {...(debug && debugAttrs(props)) }
+      {...rest}>
       <div
         style={{ width: `${currentValue}%` }}
         className="progress-bar"

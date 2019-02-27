@@ -39,6 +39,19 @@ describe('Form', () => {
     expect(component.type()).toBe('form');
     expect(classNameArray).toHaveLength(1);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <Form
+      context={ Context }
+      className={ cn }
+      what="ever">
+      </Form>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('FormGroup', () => {
@@ -65,6 +78,19 @@ describe('FormGroup', () => {
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <FormGroup
+        context={ Context }
+        className={ cn }
+        what="ever">
+      </FormGroup>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('FormRow', () => {
@@ -91,6 +117,19 @@ describe('FormRow', () => {
     expect(component.type()).toBe('div');
     expect(classNameArray).toHaveLength(2);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <FormRow
+        context={ Context }
+        className={ cn }
+        what="ever">
+      </FormRow>
+    );
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('FormInput', () => {
@@ -103,7 +142,6 @@ describe('FormInput', () => {
   it('has expected props', () => {
     const childComponent = <div>Child Component</div>;
     const component = shallow(<FormInput className={ cn } validity={ validity } what="ever"/>);
-    // TODO check to make sure passing in children throws an error
     const classNameArray = component.prop('className').split(' ');
     expect(component.prop('what')).toBe('ever');
     expect(classNameArray).toContain('form-control');
@@ -111,7 +149,6 @@ describe('FormInput', () => {
     expect(classNameArray).toContain(cn);
     expect(component.type()).toBe('input');
     expect(classNameArray).toHaveLength(3);
-
   });
 
   it('doesnt allow invalid props', () => {
@@ -133,6 +170,21 @@ describe('FormInput', () => {
     }
     expect(hasErrorBeenThrown).toBe(true);
   });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <FormInput
+      context={ Context }
+      validity={ validity }
+      className={ cn }
+      what="ever">
+      </FormInput>
+    );
+    expect(component.prop('data-validity')).toBe(validity);
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('FormSelect', () => {
@@ -174,6 +226,21 @@ describe('FormSelect', () => {
     const component = shallow(<FormSelect validity={ badValidity } />)
     expect(component.prop('className').split(' ')).not.toContain(badValidity);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <FormSelect
+      context={ Context }
+      validity={ validity }
+      className={ cn }
+      what="ever">
+      </FormSelect>
+    );
+    expect(component.prop('data-validity')).toBe(validity);
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  })
 });
 
 describe('FormSearchSelect', () => {
@@ -184,8 +251,9 @@ describe('FormSearchSelect', () => {
   });
 
   it('has expected props', () => {
+    // mock options to test react-select
     const component = shallow(
-      <FormSearchSelect
+      <Form.SearchSelect
         className={ cn }
         validity={ validity }
         what="ever" />
@@ -197,11 +265,27 @@ describe('FormSearchSelect', () => {
     expect(classNameArray).toContain(cn);
     expect(component.type()).toBe(Select);
     expect(classNameArray).toHaveLength(3);
+    expect(component.type()).toBe(Select);
   });
 
   it('doesnt allow invalid props', () => {
     const component = shallow(<FormSearchSelect validity={ badValidity } />)
     expect(component.prop('className').split(' ')).not.toContain(badValidity);
+  })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <FormSearchSelect
+        context={ Context }
+        validity={ validity }
+        className={ cn }
+        what="ever">
+      </FormSearchSelect>
+    );
+    expect(component.prop('data-validity')).toBe(validity);
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
   })
 });
 
@@ -232,6 +316,21 @@ describe('FormTextarea', () => {
     const component = shallow(<FormTextarea validity={ badValidity } />)
     expect(component.prop('className').split(' ')).not.toContain(badValidity);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <FormTextarea
+        context={ Context }
+        validity={ validity }
+        className={ cn }
+        what="ever">
+      </FormTextarea>
+    );
+    expect(component.prop('data-validity')).toBe(validity);
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  });
 });
 
 describe('FormLabel', () => {
@@ -265,6 +364,21 @@ describe('FormLabel', () => {
     const component = shallow(<FormLabel validity={ badValidity } />)
     expect(component.prop('className').split(' ')).not.toContain(badValidity);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const component = shallow(
+      <FormLabel
+        context={ Context }
+        validity={ validity }
+        className={ cn }
+        what="ever">
+      </FormLabel>
+    );
+    expect(component.prop('data-validity')).toBe(validity);
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  });
 });
 
 describe('FormCheck', () => {
@@ -303,6 +417,27 @@ describe('FormCheck', () => {
     const component = shallow(<FormCheck validity={ badValidity } />)
     expect(component.prop('className').split(' ')).not.toContain(badValidity);
   })
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const compId = 'comp-id',
+          labelValue = 'this is a label';
+    const component = shallow(
+      <FormCheck
+        context={ Context }
+        id={ compId }
+        label={ labelValue }
+        validity={ validity }
+        className={ cn }
+        what="ever">
+      </FormCheck>
+    );
+    expect(component.prop('data-validity')).toBe(validity);
+    expect(component.prop('data-label')).toBe(labelValue);
+    expect(component.prop('data-id')).toBe(compId);
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
+  });
 });
 
 describe('FormToggle', () => {
@@ -330,6 +465,22 @@ describe('FormToggle', () => {
     expect(classNameArray).toHaveLength(3);
     expect(component.find('input').prop('id')).toBe(compId);
     expect(component.find('label').prop('htmlFor')).toBe(compId);
+  });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const compId = 'comp-id';
+    const component = shallow(
+      <FormCheck
+        context={ Context }
+        id={ compId }
+        className={ cn }
+        what="ever">
+      </FormCheck>
+    );
+    expect(component.prop('data-id')).toBe(compId);
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
   });
 });
 
@@ -364,6 +515,23 @@ describe('FormDatePicker', () => {
     expect(classNameArray).toHaveLength(2);
     expect(component.prop('placeholder')).toBe(placeholder);
     expect(component.prop('data-flatpickr-mode')).toBe(mode);
+  });
+
+  it('appends data-attributes in debugMode', () => {
+    const Context = React.createContext({debugMode: true});
+    const compId = 'comp-id';
+    const placeholder = 'pick a date, fool!';
+    const component = shallow(
+      <FormCheck
+      context={ Context }
+      placeholder={ placeholder }
+      className={ cn }
+      what="ever">
+      </FormCheck>
+    );
+    expect(component.prop('data-placeholder')).toBe(placeholder);
+    expect(component.prop('data-what')).toBe('ever');
+    expect(component.prop('data-className')).toBe(cn);
   });
 });
 
