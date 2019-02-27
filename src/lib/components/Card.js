@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { cx } from 'emotion';
 import { debugAttrs, debugMode } from '../utils/debugging';
 
 const Card = props => {
   const { context, children, className, ...rest } = props;
-  const debug = debugMode(context)
+  var c = (context) ? useContext(context): null;
+  const debug = (c && c['debugMode'])
   const cardClass = cx('card', className);
   return (
     <div className={cardClass}
@@ -17,7 +18,8 @@ const Card = props => {
 
 const CardTitle = props => {
   const { context, children, className, as, ...rest } = props;
-  const debug = debugMode(context)
+  var c = (context) ? useContext(context): null;
+  const debug = (c && c['debugMode'])
   const cardTitleClass = cx('card-title', 'mb-0', className);
   const Component = as || 'h2';
   return (
@@ -31,7 +33,8 @@ const CardTitle = props => {
 
 const CardHeader = props => {
   const { context, children, className, ...rest } = props;
-  const debug = debugMode(context)
+  var c = (context) ? useContext(context): null;
+  const debug = (c && c['debugMode'])
   const headerClass = cx('card-header', className);
   return (
     <div className={headerClass}
@@ -44,7 +47,8 @@ const CardHeader = props => {
 
 const CardBody = props => {
   const { context, children, className, ...rest } = props;
-  const debug = debugMode(context)
+  var c = (context) ? useContext(context): null;
+  const debug = (c && c['debugMode'])
   const cardBodyClass = cx('card-body', className);
   return (
     <div className={cardBodyClass}
@@ -57,7 +61,8 @@ const CardBody = props => {
 
 const CardText = props => {
   const { context, children, className, ...rest } = props;
-  const debug = debugMode(context)
+  var c = (context) ? useContext(context): null;
+  const debug = (c && c['debugMode'])
   const cardTextClass = cx('card-text', className);
   return (
     <span className={cardTextClass} 
@@ -70,7 +75,8 @@ const CardText = props => {
 
 const CardDropdown = props => {
   const { context, children, className, ...rest } = props;
-  const debug = debugMode(context)
+  var c = (context) ? useContext(context): null;
+  const debug = (c && c['debugMode'])
   const cardDropdownClass = cx('dropdown', 'card-dropdown', className);
   return (
     <div className={cardDropdownClass}
@@ -83,7 +89,8 @@ const CardDropdown = props => {
 
 const CardAvatar = props => {
   const { context, children, className, ...rest } = props;
-  const debug = debugMode(context)
+  var c = (context) ? useContext(context): null;
+  const debug = (c && c['debugMode'])
   const cardAvatarClass = cx('card-avatar', 'avatar', className);
   return (
     <div className={cardAvatarClass} 
@@ -96,7 +103,8 @@ const CardAvatar = props => {
 
 const CardTable = props => {
   const { context, children, className, ...rest } = props;
-  const debug = debugMode(context)
+  var c = (context) ? useContext(context): null;
+  const debug = (c && c['debugMode'])
   const cardTableClass = cx('card-table', className);
   return (
     <table className={cardTableClass}
