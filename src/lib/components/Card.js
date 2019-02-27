@@ -5,7 +5,7 @@ import { debugAttrs, debugMode } from '../utils/debugging';
 const Card = props => {
   const { context, children, className, ...rest } = props;
   console.log('card props: ', props)
-  var c = (context) ? useContext(context): null;
+  var c = (context !== null) ? useContext(context): null;
   console.log('context: ', context)
   console.log('c: ', c)
   const debug = (c && c['debugMode'])
@@ -22,7 +22,7 @@ const Card = props => {
 
 const CardTitle = props => {
   const { context, children, className, as, ...rest } = props;
-  var c = (context) ? useContext(context): null;
+  var c = (context !== null) ? useContext(context): null;
   const debug = (c && c['debugMode'])
   const cardTitleClass = cx('card-title', 'mb-0', className);
   const Component = as || 'h2';
