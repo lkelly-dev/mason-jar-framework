@@ -60,7 +60,7 @@ export {
   HeaderSubtitle,
   HeaderTitle
 } from './components/Header';
-export { Icon, Icon2 } from './components/Icon';
+export { Icon } from './components/Icon';
 export { Image } from './components/Image';
 export {
   List,

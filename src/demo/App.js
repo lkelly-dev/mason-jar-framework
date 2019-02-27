@@ -1,15 +1,15 @@
 import React from 'react';
-import { Alert } from '../lib';
-import { debugMode, debugAttrs } from '../lib/utils/debugging.js';
+import { Icon } from '../lib';
+// import { debugMode, debugAttrs } from '../lib/utils/debugging.js';
 
 let myContext = React.createContext({ debugMode: true });
 
 const App = () => (
   <div color="primary">
-    <Alert context={myContext}
+    <Icon context={myContext}
            some-prop={{a:1, b:3}}>
       <div>Alert!</div>
-    </Alert>
+    </Icon>
   </div>
 )
 
