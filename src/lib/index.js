@@ -98,3 +98,4 @@ export {
 } from './components/Pagination';
 export { Progress } from './components/Progress';
 export { Table } from './components/Table';
+export { DebugContext } from './utils/debugging';

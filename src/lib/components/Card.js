@@ -1,19 +1,35 @@
 import React from 'react';
 import { cx } from 'emotion';
-import { debugAttrs, debugMode } from '../utils/debugging';
+import { DebugContext, debugAttrs, debugMode } from '../utils/debugging';
 
-const Card = props => {
-  const { context, children, className, ...rest } = props;
-  const debug = debugMode(context)
-  const cardClass = cx('card', className);
-  return (
-    <div className={cardClass}
-      {...(debug && debugAttrs(props)) }
-      {...rest}>
-      {children}
-    </div>
-  );
-};
+class Card extends React.Component {
+  render(){
+    const { children, className, ...rest } = this.props;
+    const debug = this.context;
+    const cardClass = cx('card', className);
+    return (
+      <div className={cardClass}
+           {...(debug && debugAttrs(this.props)) }
+           {...rest}>
+        {children}
+      </div>
+    );
+  }
+}
+Card.contextType = DebugContext;
+
+// const Card = props => {
+//   const { context, children, className, ...rest } = props;
+//   const debug = debugMode(context)
+//   const cardClass = cx('card', className);
+//   return (
+//     <div className={cardClass}
+//       {...(debug && debugAttrs(props)) }
+//       {...rest}>
+//       {children}
+//     </div>
+//   );
+// };
 
 const CardTitle = props => {
   const { context, children, className, as, ...rest } = props;

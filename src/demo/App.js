@@ -1,6 +1,5 @@
 import React from 'react';
 import { Icon } from '../lib';
-// import { debugMode, debugAttrs } from '../lib/utils/debugging.js';
 
 let myContext = React.createContext(false);
 

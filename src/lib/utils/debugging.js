@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 const createPropName = oldProp => oldProp.slice().replace(/\W+/g, '-');
 
@@ -12,4 +12,6 @@ const debugAttrs = ({context, children, ...attrs}) => Object.keys(attrs).reduce(
   return result;
 }, {});
 
-export { debugAttrs, debugMode };
+const DebugContext = createContext( false );
+
+export { debugAttrs, debugMode, DebugContext };
