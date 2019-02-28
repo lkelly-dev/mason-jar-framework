@@ -121,13 +121,14 @@ const FormDatepicker = props => {
 
 // TODO: Implement
 const FormUpload = props => {
-  const { label, formID, ..rest } = props;
+  const { label, formID, ...rest } = props;
   return (
     <div 
       className="dropzone dropzone-single"
       data-toggle="dropzone"
       data-dropzone-url="http://google.com"
-      {...rest} >
+      {...rest}
+    >
       <div className="fallback">
         <div className="custom-file">
           <input typename="file" className="custom-file-input" id={formID} />
