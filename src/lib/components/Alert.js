@@ -3,11 +3,11 @@ import { cx } from 'emotion';
 import MODIFIERS from './Modifiers';
 
 const Alert = props => {
-  const { children, color, className } = props;
+  const { children, color, className, ...rest } = props;
   const alertColor = MODIFIERS.COLOR[color] ? `alert-${color}` : null;
   const alertClass = cx('alert', alertColor, className);
   return (
-    <div role="alert" className={alertClass}>
+    <div role="alert" className={alertClass} {...rest}>
       {children}
     </div>
   );

@@ -4,9 +4,9 @@ import { cx } from 'emotion';
 import { Button } from './Button';
 
 const Modal = props => {
-  const { elementId, children } = props;
+  const { elementId, children, ...rest } = props;
   return (
-    <div className="modal" tabIndex="-1" role="dialog" aria-hidden="true" id={elementId}>
+    <div className="modal" tabIndex="-1" role="dialog" aria-hidden="true" id={elementId} {...rest}>
       <div className="modal-dialog" role="document">
         {children}
       </div>
